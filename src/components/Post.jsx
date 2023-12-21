@@ -40,7 +40,13 @@ const Post = ({ post }) => {
         title={user.name}
         subheader={post_date}
       />
-      <CardMedia component="img" height="194" image={post_image} alt={text} />
+      <CardMedia
+        sx={{ objectFit: 'scale-down' }}
+        component="img"
+        height="194"
+        image={post_image}
+        alt={text}
+      />
       <CardContent>
         <Typography variant="body2" color="whitespace">
           {text}

@@ -6,14 +6,13 @@ import {
   InputBase,
   Toolbar,
   styled,
-  Button,
+  IconButton,
 } from '@mui/material'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import MenuIcon from '@mui/icons-material/Menu'
 import { Mail, Notifications } from '@mui/icons-material'
 import { useState } from 'react'
-import { useButton } from '@mui/base'
 import Logo from './Logo'
 
 const StyledToolbar = styled(Toolbar)({
@@ -53,7 +52,7 @@ const Navbar = ({ open, setOpen }) => {
   return (
     <AppBar sx={{ color: 'white', position: 'sticky', top: '0' }}>
       <StyledToolbar>
-        <Logo dimensions={'40'} />
+        <Logo dimensions={'38'} />
         <Search>
           <InputBase
             color="primary"
@@ -88,14 +87,13 @@ const Navbar = ({ open, setOpen }) => {
             sx={{ width: 30, height: 30, cursor: 'pointer' }}
             src="https://images.pexels.com/photos/1326946/pexels-photo-1326946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
           />
-          <Button
-            variant="contained"
+          <IconButton
             onClick={() => {
               setOpen(true)
             }}
           >
             <MenuIcon />
-          </Button>
+          </IconButton>
         </UserBox>
       </StyledToolbar>
       <Menu

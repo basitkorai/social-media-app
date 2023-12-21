@@ -32,7 +32,7 @@ const posts = [
     "user": {
       "user_id": "002",
       "name": "Julie Allison",
-      "avatar": "https://example.com/images/bob_avatar.jpg"
+      "avatar": "https://images.pexels.com/photos/1821095/pexels-photo-1821095.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
     "post_image": "https://images.pexels.com/photos/2523934/pexels-photo-2523934.jpeg?auto=compress&cs=tinysrgb&w=600",
     "post_date": "October 2, 2023",
@@ -54,7 +54,7 @@ const posts = [
       "name": "Michael Downey",
       "avatar": "https://images.pexels.com/photos/1553783/pexels-photo-1553783.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
-    "post_image": "https://images.pexels.com/photos/1400249/pexels-photo-1400249.jpeg?auto=compress&cs=tinysrgb&w=300",
+    "post_image": "https://images.pexels.com/photos/6447663/pexels-photo-6447663.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     "post_date": "January 4, 2023",
     "text": "World Trade Center, New York City",
     "likes": "80k",

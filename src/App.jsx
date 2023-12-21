@@ -20,7 +20,7 @@ function App() {
   const isThemeDark = useMediaQuery('(prefers-color-scheme: dark)')
 
   useEffect(() => {
-    isThemeDark ? setIsMode('dark') : setIsMode('light')
+    setIsMode(isThemeDark ? 'dark' : 'light')
   }, [isThemeDark])
 
   const toggleMode = () => {
