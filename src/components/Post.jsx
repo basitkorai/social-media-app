@@ -16,7 +16,6 @@ import sound from '../assets/sounds/like-sound.mp3'
 const likeSound = new Audio(sound)
 const Post = ({ post }) => {
   const { post_date, post_image, text, user } = post
-  console.log(post)
   return (
     <Card
       sx={{

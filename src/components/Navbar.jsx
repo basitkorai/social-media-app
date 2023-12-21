@@ -8,13 +8,13 @@ import {
   styled,
   Button,
 } from '@mui/material'
-import Logo from '@mui/icons-material/Android'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import MenuIcon from '@mui/icons-material/Menu'
 import { Mail, Notifications } from '@mui/icons-material'
 import { useState } from 'react'
 import { useButton } from '@mui/base'
+import Logo from './Logo'
 
 const StyledToolbar = styled(Toolbar)({
   display: 'flex',
@@ -53,7 +53,7 @@ const Navbar = ({ open, setOpen }) => {
   return (
     <AppBar sx={{ color: 'white', position: 'sticky', top: '0' }}>
       <StyledToolbar>
-        <Logo />
+        <Logo dimensions={'40'} />
         <Search>
           <InputBase
             color="primary"

@@ -1,7 +1,6 @@
 import { Box } from '@mui/material'
 import Post from './Post'
 import posts from '../data/Posts'
-console.log(posts)
 
 const Feed = () => {
   return (
