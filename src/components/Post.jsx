@@ -14,7 +14,7 @@ import { Checkbox } from '@mui/material'
 import sound from '../assets/sounds/like-sound.mp3'
 
 const likeSound = new Audio(sound)
-const Post = ({ post }) => {
+const Post = ({ post, toggleLightbox, setImage }) => {
   const { post_date, post_image, text, user } = post
   return (
     <Card
@@ -41,6 +41,10 @@ const Post = ({ post }) => {
         subheader={post_date}
       />
       <CardMedia
+        onClick={() => {
+          setImage([{ src: post_image }])
+          toggleLightbox(true)
+        }}
         sx={{ objectFit: 'scale-down' }}
         component="img"
         height="194"

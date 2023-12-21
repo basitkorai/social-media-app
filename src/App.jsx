@@ -1,5 +1,11 @@
 import { useState } from 'react'
-import { ThemeProvider, createTheme, Box, useMediaQuery } from '@mui/material'
+import {
+  ThemeProvider,
+  createTheme,
+  Box,
+  useMediaQuery,
+  Button,
+} from '@mui/material'
 import Stack from '@mui/material/Stack'
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
@@ -9,6 +15,15 @@ import Feed from './components/Feed'
 import { AnimatePresence } from 'framer-motion'
 import Add from './components/Add'
 import { useEffect } from 'react'
+import Lightbox from './components/Lightbox'
+import posts from './data/Posts'
+
+const images = posts.map((image) => {
+  const { user } = image
+  return { src: user.avatar }
+})
+
+console.log(images)
 
 const isThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches
 let systemTheme = isThemeDark ? 'dark' : 'light'
@@ -16,6 +31,9 @@ let systemTheme = isThemeDark ? 'dark' : 'light'
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const [isMode, setIsMode] = useState(systemTheme)
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false)
+  const [isLightboxImage, setIsLightboxImage] = useState(null)
+
   const matches = useMediaQuery('(min-width: 600px)')
   const isThemeDark = useMediaQuery('(prefers-color-scheme: dark)')
 
@@ -65,11 +83,20 @@ function App() {
               />
             ) : null}
           </AnimatePresence>
-          <Feed />
+          <Feed
+            toggleLightbox={setIsLightboxOpen}
+            setImage={setIsLightboxImage}
+          />
           {matches && <Rightbar />}
           {/* <Rightbar /> */}
         </Stack>
         <Add biggerScreen={matches} />
+        {isLightboxOpen && (
+          <Lightbox
+            setIsOpen={setIsLightboxOpen}
+            currentImage={isLightboxImage}
+          />
+        )}
       </Box>
     </ThemeProvider>
   )
