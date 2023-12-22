@@ -12,9 +12,11 @@ import MoreVertIcon from '@mui/icons-material/MoreVert'
 import { Bookmark, BookmarkBorder, FavoriteBorder } from '@mui/icons-material'
 import { Checkbox } from '@mui/material'
 import sound from '../assets/sounds/like-sound.mp3'
+import { useAppContext } from '../context/context'
 
 const likeSound = new Audio(sound)
-const Post = ({ post, toggleLightbox, setImage }) => {
+const Post = ({ post }) => {
+  const { triggerLightbox, setLightBoxImage } = useAppContext()
   const { post_date, post_image, text, user } = post
   return (
     <Card
@@ -42,10 +44,10 @@ const Post = ({ post, toggleLightbox, setImage }) => {
       />
       <CardMedia
         onClick={() => {
-          setImage([{ src: post_image }])
-          toggleLightbox(true)
+          setLightBoxImage([{ src: post_image }])
+          triggerLightbox(true)
         }}
-        sx={{ objectFit: 'scale-down' }}
+        sx={{ objectFit: 'cover' }}
         component="img"
         height="194"
         image={post_image}

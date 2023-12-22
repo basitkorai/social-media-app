@@ -18,6 +18,7 @@ import StoreIcon from '@mui/icons-material/Store'
 import SettingsIcon from '@mui/icons-material/Settings'
 import LogoutIcon from '@mui/icons-material/Logout'
 import { useEffect } from 'react'
+import { useAppContext } from '../context/context'
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -66,7 +67,11 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   },
 }))
 
-const SidebarList = ({ isMode, setMode }) => {
+const SidebarList = () => {
+  const {
+    state: { isMode },
+    updateTheme,
+  } = useAppContext()
   return (
     <Box flex={1} p={2}>
       <List>
@@ -155,7 +160,14 @@ const SidebarList = ({ isMode, setMode }) => {
             <ListItemIcon>
               <MaterialUISwitch
                 checked={isMode === 'dark'}
-                onChange={setMode}
+                onChange={() => {
+                  try {
+                    updateTheme()
+                    console.log(isMode)
+                  } catch (error) {
+                    console.log(error)
+                  }
+                }}
               />
             </ListItemIcon>
           </ListItemButton>

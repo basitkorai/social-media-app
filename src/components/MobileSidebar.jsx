@@ -3,9 +3,11 @@ import { ClickAwayListener } from '@mui/base'
 import SidebarList from './SidebarList'
 import { useState } from 'react'
 import { Box } from '@mui/material'
+import { useAppContext } from '../context/context'
 
 const MobileSidebar = ({ open, setOpen }) => {
   const [bgColor, setBgColor] = useState('light')
+  const { triggerDrawer } = useAppContext()
   return (
     <motion.div
       style={{
@@ -30,7 +32,7 @@ const MobileSidebar = ({ open, setOpen }) => {
     >
       <ClickAwayListener
         onClickAway={() => {
-          setOpen(false)
+          triggerDrawer(false)
         }}
       >
         <Box

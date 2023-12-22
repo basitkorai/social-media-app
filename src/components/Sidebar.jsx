@@ -1,8 +1,7 @@
 import { Box } from '@mui/material'
 import SidebarList from './SidebarList'
-import Add from './Add'
 
-const Sidebar = ({ isMode, toggleMode }) => {
+const Sidebar = () => {
   return (
     <Box
       sx={{
@@ -16,7 +15,7 @@ const Sidebar = ({ isMode, toggleMode }) => {
           position: 'fixed',
         }}
       >
-        <SidebarList isMode={isMode} setMode={toggleMode} />
+        <SidebarList />
       </Box>
     </Box>
   )

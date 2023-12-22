@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { useAppContext } from './context/context'
+
 import {
   ThemeProvider,
   createTheme,
@@ -17,25 +19,17 @@ import Add from './components/Add'
 import { useEffect } from 'react'
 import Lightbox from './components/Lightbox'
 
-const isThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-let systemTheme = isThemeDark ? 'dark' : 'light'
-
 function App() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
-  const [isMode, setIsMode] = useState(systemTheme)
-  const [isLightboxOpen, setIsLightboxOpen] = useState(false)
-  const [isLightboxImage, setIsLightboxImage] = useState(null)
-
+  const {
+    state: { isMode, isLightboxOpen, isDrawerOpen },
+    updateTheme,
+  } = useAppContext()
   const matches = useMediaQuery('(min-width: 600px)')
   const isThemeDark = useMediaQuery('(prefers-color-scheme: dark)')
 
-  useEffect(() => {
-    setIsMode(isThemeDark ? 'dark' : 'light')
-  }, [isThemeDark])
-
-  const toggleMode = () => {
-    setIsMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'))
-  }
+  // useEffect(() => {
+  //   updateTheme()
+  // }, [isThemeDark])
 
   const theme = createTheme({
     palette: {
@@ -65,36 +59,18 @@ function App() {
           margin: '0',
         }}
       >
-        <Navbar setOpen={setIsSidebarOpen} open={isSidebarOpen} />
+        <Navbar />
         <Stack direction="row" justifyContent="space-between">
           <AnimatePresence>
-            {matches ? (
-              <Sidebar isMode={isMode} toggleMode={toggleMode} />
-            ) : isSidebarOpen ? (
-              <MobileSidebar
-                isMode={isMode}
-                toggleMode={toggleMode}
-                setOpen={setIsSidebarOpen}
-              />
-            ) : null}
+            {matches ? <Sidebar /> : isDrawerOpen ? <MobileSidebar /> : null}
           </AnimatePresence>
-          <Feed
-            toggleLightbox={setIsLightboxOpen}
-            setImage={setIsLightboxImage}
-          />
+          <Feed />
           {matches && <Rightbar />}
-          {/* <Rightbar /> */}
         </Stack>
         <Add biggerScreen={matches} />
-        {isLightboxOpen && (
-          <Lightbox
-            setIsOpen={setIsLightboxOpen}
-            currentImage={isLightboxImage}
-          />
-        )}
+        {isLightboxOpen && <Lightbox />}
       </Box>
     </ThemeProvider>
   )
 }
-
 export default App

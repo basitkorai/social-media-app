@@ -44,7 +44,7 @@ const UserBox = styled(Box)(({ theme }) => ({
   alignItems: 'center',
 }))
 
-const Navbar = ({ open, setOpen }) => {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const handleClose = () => {
     setIsOpen(false)
