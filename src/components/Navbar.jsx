@@ -52,7 +52,7 @@ const Navbar = ({ open, setOpen }) => {
   return (
     <AppBar sx={{ color: 'white', position: 'sticky', top: '0' }}>
       <StyledToolbar>
-        <Logo dimensions={'38'} />
+        <Logo dimensions={'34'} />
         <Search>
           <InputBase
             color="primary"
@@ -87,13 +87,6 @@ const Navbar = ({ open, setOpen }) => {
             sx={{ width: 30, height: 30, cursor: 'pointer' }}
             src="https://images.pexels.com/photos/1326946/pexels-photo-1326946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
           />
-          <IconButton
-            onClick={() => {
-              setOpen(true)
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
         </UserBox>
       </StyledToolbar>
       <Menu

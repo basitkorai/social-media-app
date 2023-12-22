@@ -16,14 +16,6 @@ import { AnimatePresence } from 'framer-motion'
 import Add from './components/Add'
 import { useEffect } from 'react'
 import Lightbox from './components/Lightbox'
-import posts from './data/Posts'
-
-const images = posts.map((image) => {
-  const { user } = image
-  return { src: user.avatar }
-})
-
-console.log(images)
 
 const isThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches
 let systemTheme = isThemeDark ? 'dark' : 'light'
