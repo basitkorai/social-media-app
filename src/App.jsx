@@ -41,6 +41,9 @@ function App() {
     palette: {
       mode: isMode,
     },
+    typography: {
+      fontFamily: ['Inter', 'sans-serif'].join(','),
+    },
     breakpoints: {
       values: {
         xs: 0,
