@@ -1,5 +1,5 @@
 import React from 'react'
-import socialRocketLogo from '../assets/images/social-rocket.png'
+import socialRocketLogo from '../assets/images/socialrocket.svg'
 
 const Logo = ({ dimensions }) => {
   return (
