@@ -22,7 +22,7 @@ const Post = ({ post }) => {
     <Card
       sx={{
         maxWidth: 500,
-        width: '90%',
+        width: '95%',
         marginBottom: '1rem',
         marginInline: 'auto',
       }}

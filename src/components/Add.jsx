@@ -45,7 +45,7 @@ const Add = ({ biggerScreen }) => {
         size={biggerScreen ? 'large' : 'medium'}
         color="primary"
         aria-label="add"
-        sx={{ position: 'fixed', left: 30, bottom: 30 }}
+        sx={{ position: 'fixed', right: 30, bottom: { xs: 70, sm: 30 } }}
       >
         <AddIcon />
       </Fab>
@@ -70,6 +70,7 @@ const Add = ({ biggerScreen }) => {
             width: { xs: '90%', sm: 400 },
             height: { xs: '70vh', sm: 'auto' },
             position: 'relative',
+            outline: '1px solid skyblue',
           }}
         >
           <IconButton

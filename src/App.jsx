@@ -18,6 +18,7 @@ import { AnimatePresence } from 'framer-motion'
 import Add from './components/Add'
 import { useEffect } from 'react'
 import Lightbox from './components/Lightbox'
+import BottomNavigation from './components/BottomNav'
 
 function App() {
   const {
@@ -62,7 +63,7 @@ function App() {
         <Navbar />
         <Stack direction="row" justifyContent="space-between">
           <AnimatePresence>
-            {matches ? <Sidebar /> : isDrawerOpen ? <MobileSidebar /> : null}
+            {matches ? <Sidebar /> : <BottomNavigation />}
           </AnimatePresence>
           <Feed />
           {matches && <Rightbar />}

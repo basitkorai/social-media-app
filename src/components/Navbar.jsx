@@ -7,11 +7,12 @@ import {
   Toolbar,
   styled,
   IconButton,
+  ClickAwayListener,
 } from '@mui/material'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
-import MenuIcon from '@mui/icons-material/Menu'
 import { Mail, Notifications } from '@mui/icons-material'
+import SearchIcon from '@mui/icons-material/Search'
 import { useState } from 'react'
 import Logo from './Logo'
 
@@ -23,9 +24,9 @@ const StyledToolbar = styled(Toolbar)({
 const Search = styled('div')(({ theme }) => ({
   backgroundColor: 'white',
   paddingInline: '0.3rem',
-  width: '40%',
-  marginRight: '1rem',
-  borderRadius: '8px',
+  width: '60%',
+  // marginRight: '1rem',
+  borderRadius: '20px',
 }))
 
 const Icons = styled(Box)(({ theme }) => ({
@@ -46,6 +47,7 @@ const UserBox = styled(Box)(({ theme }) => ({
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
   const handleClose = () => {
     setIsOpen(false)
   }
@@ -53,21 +55,32 @@ const Navbar = () => {
     <AppBar sx={{ color: 'white', position: 'sticky', top: '0' }}>
       <StyledToolbar>
         <Logo dimensions={'34'} />
-        <Search>
-          <InputBase
-            color="primary"
-            placeholder="Search"
-            variant="outlined"
-            sx={{
-              width: '100%',
+        {isSearchOpen ? (
+          <ClickAwayListener onClickAway={() => setIsSearchOpen(false)}>
+            <Search>
+              <InputBase
+                color="primary"
+                placeholder="Search"
+                variant="outlined"
+                sx={{
+                  width: '100%',
 
-              '& input::placeholder': {
-                color: 'black',
-                padding: '1rem',
-              },
-            }}
-          />
-        </Search>
+                  '& input::placeholder': {
+                    color: 'black',
+                    padding: '1rem',
+                  },
+                }}
+              />
+            </Search>
+          </ClickAwayListener>
+        ) : (
+          <IconButton
+            onClick={() => setIsSearchOpen(true)}
+            sx={{ marginLeft: 'auto', marginRight: 1 }}
+          >
+            <SearchIcon />
+          </IconButton>
+        )}
         <Icons>
           <Badge badgeContent={5} color="error">
             <Mail />
