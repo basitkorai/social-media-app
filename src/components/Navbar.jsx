@@ -13,8 +13,11 @@ import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import { Mail, Notifications } from '@mui/icons-material'
 import SearchIcon from '@mui/icons-material/Search'
+import LightModeIcon from '@mui/icons-material/LightMode'
+import DarkModeIcon from '@mui/icons-material/DarkMode'
 import { useState } from 'react'
 import Logo from './Logo'
+import { useAppContext } from '../context/context'
 
 const StyledToolbar = styled(Toolbar)({
   display: 'flex',
@@ -24,7 +27,7 @@ const StyledToolbar = styled(Toolbar)({
 const Search = styled('div')(({ theme }) => ({
   backgroundColor: 'white',
   paddingInline: '0.3rem',
-  width: '60%',
+  width: '80%',
   // marginRight: '1rem',
   borderRadius: '20px',
 }))
@@ -48,6 +51,10 @@ const UserBox = styled(Box)(({ theme }) => ({
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isSearchOpen, setIsSearchOpen] = useState(false)
+  const {
+    state: { isMode },
+    updateTheme,
+  } = useAppContext()
   const handleClose = () => {
     setIsOpen(false)
   }
@@ -55,32 +62,45 @@ const Navbar = () => {
     <AppBar sx={{ color: 'white', position: 'sticky', top: '0' }}>
       <StyledToolbar>
         <Logo dimensions={'34'} />
-        {isSearchOpen ? (
-          <ClickAwayListener onClickAway={() => setIsSearchOpen(false)}>
-            <Search>
-              <InputBase
-                color="primary"
-                placeholder="Search"
-                variant="outlined"
-                sx={{
-                  width: '100%',
+        <Box
+          sx={{
+            marginLeft: 'auto',
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
+          {isSearchOpen ? null : (
+            <IconButton onClick={() => updateTheme()}>
+              {isMode === 'dark' ? <DarkModeIcon /> : <LightModeIcon />}
+            </IconButton>
+          )}
+          {isSearchOpen ? (
+            <ClickAwayListener onClickAway={() => setIsSearchOpen(false)}>
+              <Search>
+                <InputBase
+                  color="primary"
+                  placeholder="Search"
+                  variant="outlined"
+                  sx={{
+                    width: '100%',
 
-                  '& input::placeholder': {
-                    color: 'black',
-                    padding: '1rem',
-                  },
-                }}
-              />
-            </Search>
-          </ClickAwayListener>
-        ) : (
-          <IconButton
-            onClick={() => setIsSearchOpen(true)}
-            sx={{ marginLeft: 'auto', marginRight: 1 }}
-          >
-            <SearchIcon />
-          </IconButton>
-        )}
+                    '& input::placeholder': {
+                      color: 'black',
+                      padding: '1rem',
+                    },
+                  }}
+                />
+              </Search>
+            </ClickAwayListener>
+          ) : (
+            <IconButton
+              onClick={() => setIsSearchOpen(true)}
+              sx={{ marginLeft: 'auto', marginRight: 1 }}
+            >
+              <SearchIcon />
+            </IconButton>
+          )}
+        </Box>
         <Icons>
           <Badge badgeContent={5} color="error">
             <Mail />
