@@ -42,7 +42,7 @@ const Add = ({ biggerScreen }) => {
     <>
       <Fab
         onClick={handleClickAndClickAway}
-        size={biggerScreen ? 'large' : 'medium'}
+        size={biggerScreen ? 'large' : 'small'}
         color="primary"
         aria-label="add"
         sx={{ position: 'fixed', right: 30, bottom: { xs: 70, sm: 30 } }}
