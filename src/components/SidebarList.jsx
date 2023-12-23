@@ -16,25 +16,27 @@ const SidebarList = () => {
       <List>
         {navlinks.map((link, index) => {
           return (
-            <ListItem
-              key={index}
-              disablePadding
-              sx={{ borderRadius: '1rem', overflow: 'hidden' }}
+            <NavLink
+              style={{
+                color: 'white',
+                textDecoration: 'none',
+                fontFamily: 'Inter, sans-serif',
+                padding: '0.5rem',
+              }}
+              to={link.link}
             >
-              <ListItemButton>
-                <ListItemIcon>{link.icon}</ListItemIcon>
-                <NavLink
-                  style={{
-                    color: 'white',
-                    textDecoration: 'none',
-                    fontFamily: 'Inter, sans-serif',
-                  }}
-                  to={link.link}
-                >
+              <ListItem
+                key={index}
+                disablePadding
+                sx={{ borderRadius: '1rem', overflow: 'hidden' }}
+              >
+                <ListItemButton>
+                  <ListItemIcon>{link.icon}</ListItemIcon>
+
                   {link.route}
-                </NavLink>
-              </ListItemButton>
-            </ListItem>
+                </ListItemButton>
+              </ListItem>
+            </NavLink>
           )
         })}
       </List>
