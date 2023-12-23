@@ -1,11 +1,5 @@
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'TRIGGER_DRAWER': {
-      return {
-        ...state,
-        isDrawerOpen: action.payload,
-      }
-    }
     case 'UPDATE_THEME': {
       return {
         ...state,
@@ -18,7 +12,7 @@ const reducer = (state, action) => {
         isLightboxImage: action.payload,
       }
     }
-    case 'TRIGGER_LIGHTBOX': {
+    case 'TOGGLE_LIGHTBOX': {
       return {
         ...state,
         isLightboxOpen: action.payload,

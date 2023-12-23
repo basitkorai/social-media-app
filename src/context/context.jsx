@@ -13,13 +13,6 @@ const initialState = {
 }
 const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
-
-  const triggerDrawer = (drawerState) => {
-    dispatch({
-      type: 'TRIGGER_DRAWER',
-      payload: drawerState,
-    })
-  }
   const updateTheme = () => {
     const mode = state.isMode === 'light' ? 'dark' : 'light'
     try {
@@ -37,19 +30,18 @@ const ContextProvider = ({ children }) => {
       payload: url,
     })
   }
-  const triggerLightbox = (lightboxState) => {
+  const toggleLightbox = (lightboxState) => {
     dispatch({
-      type: 'TRIGGER_LIGHTBOX',
+      type: 'TOGGLE_LIGHTBOX',
       payload: lightboxState,
     })
   }
 
   const appState = {
     state,
-    triggerDrawer,
     updateTheme,
     setLightBoxImage,
-    triggerLightbox,
+    toggleLightbox,
   }
   return (
     <AppContext.Provider value={{ ...appState }}>

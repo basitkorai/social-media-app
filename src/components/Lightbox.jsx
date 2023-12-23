@@ -5,7 +5,7 @@ import { useAppContext } from '../context/context'
 const Lightbox = ({}) => {
   const {
     state: { isLightboxImage },
-    triggerLightbox,
+    toggleLightbox,
   } = useAppContext()
 
   return (
@@ -21,7 +21,7 @@ const Lightbox = ({}) => {
         buttonNext: isLightboxImage.length <= 1 ? () => null : undefined,
       }}
       open
-      close={() => triggerLightbox(false)}
+      close={() => toggleLightbox(false)}
       slides={isLightboxImage}
     />
   )
