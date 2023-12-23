@@ -70,7 +70,7 @@ const Navbar = () => {
           }}
         >
           {isSearchOpen ? null : (
-            <IconButton onClick={() => updateTheme()}>
+            <IconButton sx={{ color: '#fff' }} onClick={() => updateTheme()}>
               {isMode === 'dark' ? <DarkModeIcon /> : <LightModeIcon />}
             </IconButton>
           )}
@@ -94,8 +94,9 @@ const Navbar = () => {
             </ClickAwayListener>
           ) : (
             <IconButton
+              // color=""
               onClick={() => setIsSearchOpen(true)}
-              sx={{ marginLeft: 'auto', marginRight: 1 }}
+              sx={{ marginLeft: 'auto', marginRight: 1, color: '#fff' }}
             >
               <SearchIcon />
             </IconButton>

@@ -11,7 +11,6 @@ import {
 import Stack from '@mui/material/Stack'
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
-import MobileSidebar from './components/MobileSidebar'
 import Rightbar from './components/Rightbar'
 import Feed from './components/Feed'
 import { AnimatePresence } from 'framer-motion'
@@ -35,6 +34,8 @@ function App() {
   const theme = createTheme({
     palette: {
       mode: isMode,
+      // white: '#ffffff',
+      fling: '#fff',
     },
     typography: {
       fontFamily: ['Inter', 'sans-serif'].join(','),

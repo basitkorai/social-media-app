@@ -152,26 +152,6 @@ const SidebarList = () => {
             <ListItemText primary="Log Out" />
           </ListItemButton>
         </ListItem>
-        <ListItem
-          disablePadding
-          sx={{ borderRadius: '1rem', overflow: 'hidden' }}
-        >
-          <ListItemButton>
-            <ListItemIcon>
-              <MaterialUISwitch
-                checked={isMode === 'dark'}
-                onChange={() => {
-                  try {
-                    updateTheme()
-                    console.log(isMode)
-                  } catch (error) {
-                    console.log(error)
-                  }
-                }}
-              />
-            </ListItemIcon>
-          </ListItemButton>
-        </ListItem>
       </List>
     </Box>
   )
