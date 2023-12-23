@@ -1,17 +1,17 @@
 import React from 'react'
 
-const Shop = () => {
+const Pages = () => {
   return (
     <div
       style={{
         height: '100vh',
-        fontSize: '9rem',
+        fontSize: '7rem',
         fontFamily: 'Inter, sans-serif',
       }}
     >
-      Shop
+      Pages
     </div>
   )
 }
 
-export default Shop
+export default Pages
