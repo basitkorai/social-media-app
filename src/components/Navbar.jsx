@@ -55,6 +55,8 @@ const Navbar = () => {
     state: { isMode },
     updateTheme,
   } = useAppContext()
+
+  const iconColor = { color: isMode === 'dark' ? '#34d399' : '#fff' }
   const handleClose = () => {
     setIsOpen(false)
   }
@@ -70,7 +72,7 @@ const Navbar = () => {
           }}
         >
           {isSearchOpen ? null : (
-            <IconButton sx={{ color: '#fff' }} onClick={() => updateTheme()}>
+            <IconButton sx={iconColor} onClick={() => updateTheme()}>
               {isMode === 'dark' ? <DarkModeIcon /> : <LightModeIcon />}
             </IconButton>
           )}
@@ -96,7 +98,7 @@ const Navbar = () => {
             <IconButton
               // color=""
               onClick={() => setIsSearchOpen(true)}
-              sx={{ marginLeft: 'auto', marginRight: 1, color: '#fff' }}
+              sx={{ marginLeft: 'auto', marginRight: 1, ...iconColor }}
             >
               <SearchIcon />
             </IconButton>
