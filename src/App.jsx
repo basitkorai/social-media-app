@@ -11,6 +11,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Layout from './pages/Layout'
 import Friends from './pages/Friends'
 import Shop from './pages/Shop'
+import Groups from './pages/Groups'
+import Pages from './pages/Pages'
 
 function App() {
   const { isMode } = useAppContext()
@@ -46,6 +48,8 @@ function App() {
             <Route index element={<Home sm={matches} />} />
             <Route path="/shop" element={<Shop />} />
             <Route path="/friends" element={<Friends />} />
+            <Route path="/groups" element={<Groups />} />
+            <Route path="/pages" element={<Pages />} />
           </Route>
         </Routes>
       </BrowserRouter>
