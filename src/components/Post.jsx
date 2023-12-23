@@ -10,7 +10,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite'
 import ShareIcon from '@mui/icons-material/Share'
 import MoreVertIcon from '@mui/icons-material/MoreVert'
 import { Bookmark, BookmarkBorder, FavoriteBorder } from '@mui/icons-material'
-import { Checkbox } from '@mui/material'
+import { CardActionArea, Checkbox } from '@mui/material'
 import sound from '../assets/sounds/like-sound.mp3'
 import { useAppContext } from '../context/context'
 
@@ -42,17 +42,26 @@ const Post = ({ post }) => {
         title={user.name}
         subheader={post_date}
       />
-      <CardMedia
-        onClick={() => {
-          setLightBoxImage([{ src: post_image }])
-          triggerLightbox(true)
-        }}
-        sx={{ objectFit: 'cover' }}
-        component="img"
-        height="194"
-        image={post_image}
-        alt={text}
-      />
+      <CardActionArea sx={{ overflow: 'hidden' }}>
+        <CardMedia
+          onClick={() => {
+            setLightBoxImage([{ src: post_image }])
+            triggerLightbox(true)
+          }}
+          sx={{
+            objectFit: 'cover',
+            '&:hover': {
+              cursor: 'pointer',
+              transform: 'scale(1.1)',
+              transition: '500ms ease-in-out',
+            },
+          }}
+          component="img"
+          height="194"
+          image={post_image}
+          alt={text}
+        />
+      </CardActionArea>
       <CardContent>
         <Typography variant="body2" color="whitespace">
           {text}
