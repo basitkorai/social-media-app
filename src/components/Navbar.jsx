@@ -28,7 +28,6 @@ const Search = styled('div')(({ theme }) => ({
   backgroundColor: 'white',
   paddingInline: '0.3rem',
   width: '80%',
-  // marginRight: '1rem',
   borderRadius: '20px',
 }))
 
@@ -51,10 +50,7 @@ const UserBox = styled(Box)(({ theme }) => ({
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isSearchOpen, setIsSearchOpen] = useState(false)
-  const {
-    state: { isMode },
-    updateTheme,
-  } = useAppContext()
+  const { isMode, updateTheme } = useAppContext()
 
   const iconColor = { color: isMode === 'dark' ? '#34d399' : '#fff' }
   const handleClose = () => {

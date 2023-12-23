@@ -3,10 +3,7 @@ import 'yet-another-react-lightbox/styles.css'
 import { useAppContext } from '../context/context'
 
 const Lightbox = ({}) => {
-  const {
-    state: { isLightboxImage },
-    toggleLightbox,
-  } = useAppContext()
+  const { isLightboxImage, toggleLightbox } = useAppContext()
 
   return (
     <LightboxComponent

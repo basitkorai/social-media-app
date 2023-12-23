@@ -18,9 +18,7 @@ import Lightbox from './components/Lightbox'
 import BottomNavigation from './components/BottomNav'
 
 function App() {
-  const {
-    state: { isMode, isLightboxOpen },
-  } = useAppContext()
+  const { isMode, isLightboxOpen } = useAppContext()
   const matches = useMediaQuery('(min-width: 600px)')
   const isThemeDark = useMediaQuery('(prefers-color-scheme: dark)')
 
