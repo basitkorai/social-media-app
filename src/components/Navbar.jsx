@@ -11,14 +11,17 @@ import {
 } from '@mui/material'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
-import { Mail, Notifications } from '@mui/icons-material'
+import { Logout, Mail, Notifications } from '@mui/icons-material'
 import SearchIcon from '@mui/icons-material/Search'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
+import { Settings } from '@mui/icons-material'
+import AccountBoxIcon from '@mui/icons-material/AccountBox'
 import { useState } from 'react'
 import Logo from './Logo'
 import { useAppContext } from '../context/context'
 
+const menuIconStyles = { marginRight: '0.5rem' }
 const StyledToolbar = styled(Toolbar)({
   display: 'flex',
   justifyContent: 'space-between',
@@ -92,7 +95,6 @@ const Navbar = () => {
             </ClickAwayListener>
           ) : (
             <IconButton
-              // color=""
               onClick={() => setIsSearchOpen(true)}
               sx={{ marginLeft: 'auto', marginRight: 1, ...iconColor }}
             >
@@ -136,9 +138,18 @@ const Navbar = () => {
           horizontal: 'right',
         }}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem onClick={handleClose}>
+          <AccountBoxIcon sx={menuIconStyles} />
+          Profile
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+          <Settings sx={menuIconStyles} />
+          Settings
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+          <Logout sx={menuIconStyles} />
+          Logout
+        </MenuItem>
       </Menu>
     </AppBar>
   )
