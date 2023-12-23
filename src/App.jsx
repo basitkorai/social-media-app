@@ -6,25 +6,15 @@ import {
   useMediaQuery,
   Button,
 } from '@mui/material'
-import Stack from '@mui/material/Stack'
-import Navbar from './components/Navbar'
-import Sidebar from './components/Sidebar'
-import Rightbar from './components/Rightbar'
-import Feed from './components/Feed'
-import { AnimatePresence } from 'framer-motion'
-import Add from './components/Add'
-import { useEffect } from 'react'
-import Lightbox from './components/Lightbox'
-import BottomNavigation from './components/BottomNav'
+import Home from './pages/Home'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Layout from './pages/Layout'
+import Friends from './pages/Friends'
+import Shop from './pages/Shop'
 
 function App() {
-  const { isMode, isLightboxOpen } = useAppContext()
+  const { isMode } = useAppContext()
   const matches = useMediaQuery('(min-width: 600px)')
-  const isThemeDark = useMediaQuery('(prefers-color-scheme: dark)')
-
-  // useEffect(() => {
-  //   updateTheme()
-  // }, [isThemeDark])
 
   const theme = createTheme({
     palette: {
@@ -50,24 +40,15 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Box
-        bgcolor="background.default"
-        color="text.primary"
-        sx={{
-          margin: '0',
-        }}
-      >
-        <Navbar />
-        <Stack direction="row" justifyContent="space-between">
-          <AnimatePresence>
-            {matches ? <Sidebar /> : <BottomNavigation />}
-          </AnimatePresence>
-          <Feed />
-          {matches && <Rightbar />}
-        </Stack>
-        <Add biggerScreen={matches} />
-        {isLightboxOpen && <Lightbox />}
-      </Box>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home sm={matches} />} />
+            <Route path="/shop" element={<Shop />} />
+            <Route path="/friends" element={<Friends />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </ThemeProvider>
   )
 }
