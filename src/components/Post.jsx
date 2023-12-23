@@ -16,7 +16,7 @@ import { useAppContext } from '../context/context'
 
 const likeSound = new Audio(sound)
 const Post = ({ post }) => {
-  const { triggerLightbox, setLightBoxImage } = useAppContext()
+  const { toggleLightbox, setLightBoxImage } = useAppContext()
   const { post_date, post_image, text, user } = post
   return (
     <Card
@@ -46,7 +46,7 @@ const Post = ({ post }) => {
         <CardMedia
           onClick={() => {
             setLightBoxImage([{ src: post_image }])
-            triggerLightbox(true)
+            toggleLightbox(true)
           }}
           sx={{
             objectFit: 'cover',
