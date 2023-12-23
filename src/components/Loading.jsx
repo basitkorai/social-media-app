@@ -18,7 +18,7 @@ const Loading = () => {
         backgroundColor: isMode === 'dark' ? '#121212' : '#ffffff',
       }}
     >
-      <CircularProgress />
+      <CircularProgress sx={{ color: '#34d399' }} />
     </Box>
   )
 }

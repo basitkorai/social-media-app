@@ -1,6 +1,4 @@
-import { useState } from 'react'
 import { useAppContext } from './context/context'
-
 import {
   ThemeProvider,
   createTheme,
@@ -21,8 +19,7 @@ import BottomNavigation from './components/BottomNav'
 
 function App() {
   const {
-    state: { isMode, isLightboxOpen, isDrawerOpen },
-    updateTheme,
+    state: { isMode, isLightboxOpen },
   } = useAppContext()
   const matches = useMediaQuery('(min-width: 600px)')
   const isThemeDark = useMediaQuery('(prefers-color-scheme: dark)')
@@ -34,8 +31,10 @@ function App() {
   const theme = createTheme({
     palette: {
       mode: isMode,
-      // white: '#ffffff',
-      fling: '#fff',
+      primary: {
+        main: '#34d399',
+        dark: '#F6AE2D',
+      },
     },
     typography: {
       fontFamily: ['Inter', 'sans-serif'].join(','),
@@ -56,7 +55,6 @@ function App() {
       <Box
         bgcolor="background.default"
         color="text.primary"
-        fontFamily="fantasy"
         sx={{
           margin: '0',
         }}
