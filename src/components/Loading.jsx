@@ -3,9 +3,7 @@ import { useAppContext } from '../context/context'
 import { Box } from '@mui/material'
 
 const Loading = () => {
-  const {
-    state: { isMode },
-  } = useAppContext()
+  const { isMode } = useAppContext()
   return (
     <Box
       sx={{

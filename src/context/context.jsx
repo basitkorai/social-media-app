@@ -38,7 +38,7 @@ const ContextProvider = ({ children }) => {
   }
 
   const appState = {
-    state,
+    ...state,
     updateTheme,
     setLightBoxImage,
     toggleLightbox,
