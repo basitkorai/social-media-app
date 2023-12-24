@@ -1,6 +1,7 @@
 import { createContext, useContext, useReducer } from 'react'
 import reducer from './reducer'
 import { useMediaQuery } from '@mui/material'
+import users from '../data/users'
 const AppContext = createContext()
 
 const isThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -40,11 +41,16 @@ const ContextProvider = ({ children }) => {
       payload: lightboxState,
     })
   }
-  const selectUser = (user) => {
+  const selectUser = (user_id, cb) => {
+    const clickedProfile = users.find((user) => user.user_id === user_id)
+
     dispatch({
       type: 'SELECT_USER',
-      payload: user,
+      payload: clickedProfile,
     })
+    if (cb) {
+      cb(`/profile/${user_id}`)
+    }
   }
 
   const appState = {
