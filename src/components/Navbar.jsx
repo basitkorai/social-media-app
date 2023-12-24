@@ -103,11 +103,10 @@ const Navbar = () => {
           )}
         </Box>
         <Icons>
-          <Badge badgeContent={5} color="error">
-            <Mail />
-          </Badge>
           <Badge badgeContent={3} color="error">
-            <Notifications />
+            <IconButton>
+              <Notifications />
+            </IconButton>
           </Badge>
           <Avatar
             onClick={() => setIsOpen(true)}

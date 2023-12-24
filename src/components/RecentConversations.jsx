@@ -12,8 +12,8 @@ const RecentConversations = () => {
       <ListItem alignItems="flex-start">
         <ListItemAvatar>
           <Avatar
-            alt="Remy Sharp"
-            src="http://material-ui.com/static/images/avatar/1.jpg"
+            alt="Michael Downy"
+            src="https://images.pexels.com/photos/1553783/pexels-photo-1553783.jpeg?auto=compress&cs=tinysrgb&w=600"
           />
         </ListItemAvatar>
         <ListItemText
@@ -62,8 +62,8 @@ const RecentConversations = () => {
       <ListItem alignItems="flex-start">
         <ListItemAvatar>
           <Avatar
-            alt="Cindy Baker"
-            src="http://material-ui.com/static/images/avatar/3.jpg"
+            alt="Alice"
+            src="https://images.pexels.com/photos/18369366/pexels-photo-18369366/free-photo-of-tet-holiday-in-vietnam.png?auto=compress&cs=tinysrgb&w=600&lazy=load"
           />
         </ListItemAvatar>
         <ListItemText

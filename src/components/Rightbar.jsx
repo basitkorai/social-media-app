@@ -8,6 +8,7 @@ import {
 } from '@mui/material'
 import LatestPosts from './LatestPosts/LatestPosts'
 import RecentConversations from './RecentConversations'
+import users from '../data/users'
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -79,26 +80,13 @@ const Rightbar = () => {
           >
             <Avatar
               alt="Remy Sharp"
-              src="https://material-ui.com/static/images/avatar/1.jpg"
+              src="https://images.pexels.com/photos/1484771/pexels-photo-1484771.jpeg?auto=compress&cs=tinysrgb&w=600"
             />
           </StyledBadge>
-
-          <Avatar
-            alt="Travis Howard"
-            src="https://material-ui.com/static/images/avatar/2.jpg"
-          />
-          <Avatar
-            alt="Cindy Baker"
-            src="https://material-ui.com/static/images/avatar/3.jpg"
-          />
-          <Avatar
-            alt="Agnes Walker"
-            src="https://material-ui.com/static/images/avatar/4.jpg"
-          />
-          <Avatar
-            alt="Trevor Henderson"
-            src="https://material-ui.com/static/images/avatar/5.jpg"
-          />
+          {users.map((user, index) => {
+            const { user_id, name, avatar } = user
+            return <Avatar key={user_id} alt={name} src={avatar} />
+          })}
         </AvatarGroup>
         <StyledTypography variant="h2">Latest Posts</StyledTypography>
         <LatestPosts />
