@@ -24,6 +24,12 @@ const reducer = (state, action) => {
         isLightboxOpen: action.payload,
       }
     }
+    case 'UPDATE_TAB': {
+      return {
+        ...state,
+        isSelectedTab: action.payload,
+      }
+    }
   }
 }
 
