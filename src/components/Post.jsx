@@ -13,11 +13,23 @@ import { Bookmark, BookmarkBorder, FavoriteBorder } from '@mui/icons-material'
 import { CardActionArea, Checkbox } from '@mui/material'
 import sound from '../assets/sounds/like-sound.mp3'
 import { useAppContext } from '../context/context'
+import { useNavigate } from 'react-router-dom'
+import users from '../data/users'
 
 const likeSound = new Audio(sound)
 const Post = ({ post }) => {
-  const { toggleLightbox, setLightBoxImage } = useAppContext()
+  const { toggleLightbox, setLightBoxImage, selectUser, navigateTo } =
+    useAppContext()
   const { post_date, post_image, text, user } = post
+  const { user_id } = user
+  const navigate = useNavigate()
+
+  const handleGoToProfile = () => {
+    const clickedProfile = users.find((user) => user.user_id === user_id)
+    selectUser(clickedProfile)
+    navigate('/profile')
+  }
+
   return (
     <Card
       sx={{
@@ -30,6 +42,7 @@ const Post = ({ post }) => {
       <CardHeader
         avatar={
           <Avatar
+            onClick={handleGoToProfile}
             sx={{ width: 30, height: 30, cursor: 'pointer' }}
             src={user.avatar}
           />
@@ -39,7 +52,7 @@ const Post = ({ post }) => {
             <MoreVertIcon />
           </IconButton>
         }
-        title={user.name}
+        title={<span onClick={handleGoToProfile}>{user.name}</span>}
         subheader={post_date}
       />
       <CardActionArea sx={{ overflow: 'hidden' }}>

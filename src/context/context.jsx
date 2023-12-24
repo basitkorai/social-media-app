@@ -8,6 +8,7 @@ let systemTheme = isThemeDark ? 'dark' : 'light'
 
 const initialState = {
   isMode: systemTheme,
+  isSelectedUser: null,
   isDrawerOpen: false,
   isLightboxOpen: false,
   isLightboxImage: null,
@@ -39,11 +40,18 @@ const ContextProvider = ({ children }) => {
       payload: lightboxState,
     })
   }
+  const selectUser = (user) => {
+    dispatch({
+      type: 'SELECT_USER',
+      payload: user,
+    })
+  }
 
   const appState = {
     ...state,
     min600,
     updateTheme,
+    selectUser,
     setLightBoxImage,
     toggleLightbox,
   }

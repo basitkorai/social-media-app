@@ -6,6 +6,12 @@ const reducer = (state, action) => {
         isMode: action.payload,
       }
     }
+    case 'SELECT_USER': {
+      return {
+        ...state,
+        isSelectedUser: action.payload,
+      }
+    }
     case 'SET_LIGHTBOX_IMAGE': {
       return {
         ...state,
