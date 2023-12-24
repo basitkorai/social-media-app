@@ -8,8 +8,7 @@ import { useAppContext } from '../context/context'
 import { Outlet } from 'react-router-dom'
 
 const Layout = () => {
-  const { isMode, isLightboxOpen } = useAppContext()
-  const matches = useMediaQuery('(min-width: 600px)')
+  const { isLightboxOpen, min600 } = useAppContext()
   return (
     <>
       <Box
@@ -20,12 +19,8 @@ const Layout = () => {
         }}
       >
         <Navbar />
-        <Stack
-          direction="row"
-          justifyContent="space-between"
-          sx={{ outline: '2px solid yellow' }}
-        >
-          {matches ? <Sidebar /> : <BottomNavigation />}
+        <Stack direction="row" justifyContent="space-between">
+          {min600 ? <Sidebar /> : <BottomNavigation />}
           <Outlet />
         </Stack>
         {isLightboxOpen && <Lightbox />}
