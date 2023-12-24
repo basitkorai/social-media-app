@@ -1,11 +1,15 @@
 import { Avatar, Box, ButtonBase, Typography } from '@mui/material'
 import users from '../data/users'
 import { useAppContext } from '../context/context'
+import { useNavigate } from 'react-router-dom'
 
 const FollowerProfiles = () => {
-  const {
-    isSelectedUser: { user_id },
-  } = useAppContext()
+  const navigate = useNavigate()
+  const { isSelectedUser, selectUser } = useAppContext()
+  const { user_id } = isSelectedUser
+  const handleGoToProfile = (user_id) => {
+    selectUser(user_id, navigate)
+  }
   return (
     <>
       {users.map((user, index) => {
@@ -13,6 +17,9 @@ const FollowerProfiles = () => {
         if (user.user_id !== user_id) {
           return (
             <ButtonBase
+              onClick={() => {
+                handleGoToProfile(user.user_id)
+              }}
               key={index}
               sx={{
                 display: 'flex',

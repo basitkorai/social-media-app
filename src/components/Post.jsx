@@ -18,16 +18,13 @@ import users from '../data/users'
 
 const likeSound = new Audio(sound)
 const Post = ({ post }) => {
-  const { toggleLightbox, setLightBoxImage, selectUser, navigateTo } =
-    useAppContext()
+  const { toggleLightbox, setLightBoxImage, selectUser } = useAppContext()
   const { post_date, post_image, text, user } = post
   const { user_id } = user
   const navigate = useNavigate()
 
   const handleGoToProfile = () => {
-    const clickedProfile = users.find((user) => user.user_id === user_id)
-    selectUser(clickedProfile)
-    navigate('/profile')
+    selectUser(user_id, navigate)
   }
 
   return (

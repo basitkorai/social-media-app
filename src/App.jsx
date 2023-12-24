@@ -1,6 +1,6 @@
 import { useAppContext } from './context/context'
 import Home from './pages/Home'
-import { BrowserRouter, HashRouter, Route, Routes } from 'react-router-dom'
+import { HashRouter, Route, Routes } from 'react-router-dom'
 import Layout from './pages/Layout'
 import Friends from './pages/Friends'
 import Shop from './pages/Shop'
@@ -23,6 +23,7 @@ function App() {
             <Route path="/groups" element={<Groups />} />
             <Route path="/pages" element={<Pages />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/profile/:user_id" element={<Profile />} />
           </Route>
         </Routes>
       </HashRouter>

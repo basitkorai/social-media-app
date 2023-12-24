@@ -3,7 +3,6 @@ import FollowerProfiles from './FollowerProfile'
 import { motion } from 'framer-motion'
 import { Box, Button, ButtonBase, IconButton, Typography } from '@mui/material'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
-
 import { useNavigate } from 'react-router-dom'
 import { useAppContext } from '../context/context'
 
@@ -12,7 +11,7 @@ const UserProfile = ({ name, avatar, isFollowing }) => {
   const navigate = useNavigate()
 
   const handleGoBack = () => {
-    navigate(-1)
+    navigate('/')
   }
   return (
     <motion.div
