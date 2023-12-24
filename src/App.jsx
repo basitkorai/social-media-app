@@ -1,11 +1,4 @@
 import { useAppContext } from './context/context'
-import {
-  ThemeProvider,
-  createTheme,
-  Box,
-  useMediaQuery,
-  Button,
-} from '@mui/material'
 import Home from './pages/Home'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Layout from './pages/Layout'
@@ -13,34 +6,13 @@ import Friends from './pages/Friends'
 import Shop from './pages/Shop'
 import Groups from './pages/Groups'
 import Pages from './pages/Pages'
+import ThemeContextProvider from './context/ThemeContext'
 
 function App() {
-  const { isMode, min600 } = useAppContext()
-
-  const theme = createTheme({
-    palette: {
-      mode: isMode,
-      primary: {
-        main: '#34d399',
-        dark: '#F6AE2D',
-      },
-    },
-    typography: {
-      fontFamily: ['Inter', 'sans-serif'].join(','),
-    },
-    breakpoints: {
-      values: {
-        xs: 0,
-        sm: 600,
-        md: 900,
-        lg: 1200,
-        xl: 1536,
-      },
-    },
-  })
+  const { min600 } = useAppContext()
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeContextProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -52,7 +24,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
-    </ThemeProvider>
+    </ThemeContextProvider>
   )
 }
 export default App
