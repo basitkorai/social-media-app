@@ -1,5 +1,6 @@
 import { createContext, useContext, useReducer } from 'react'
 import reducer from './reducer'
+import { useMediaQuery } from '@mui/material'
 const AppContext = createContext()
 
 const isThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -13,6 +14,8 @@ const initialState = {
 }
 const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
+  const min600 = useMediaQuery('(min-width: 600px)')
+
   const updateTheme = () => {
     const mode = state.isMode === 'light' ? 'dark' : 'light'
     try {
@@ -39,6 +42,7 @@ const ContextProvider = ({ children }) => {
 
   const appState = {
     ...state,
+    min600,
     updateTheme,
     setLightBoxImage,
     toggleLightbox,

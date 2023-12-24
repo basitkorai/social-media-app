@@ -4,8 +4,8 @@ const Shop = () => {
   return (
     <div
       style={{
-        height: '100vh',
-        fontSize: '9rem',
+        height: '80vh',
+        fontSize: '7rem',
         fontFamily: 'Inter, sans-serif',
       }}
     >

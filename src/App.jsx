@@ -15,8 +15,7 @@ import Groups from './pages/Groups'
 import Pages from './pages/Pages'
 
 function App() {
-  const { isMode } = useAppContext()
-  const matches = useMediaQuery('(min-width: 600px)')
+  const { isMode, min600 } = useAppContext()
 
   const theme = createTheme({
     palette: {
@@ -45,7 +44,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Home sm={matches} />} />
+            <Route index element={<Home sm={min600} />} />
             <Route path="/shop" element={<Shop />} />
             <Route path="/friends" element={<Friends />} />
             <Route path="/groups" element={<Groups />} />

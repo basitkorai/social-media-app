@@ -50,7 +50,7 @@ const Rightbar = () => {
   return (
     <Box
       flex={2}
-      p={2}
+      paddingBlock={2}
       sx={{
         display: {
           xs: 'none',
