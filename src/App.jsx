@@ -22,6 +22,7 @@ function App() {
             <Route path="/friends" element={<Friends />} />
             <Route path="/groups" element={<Groups />} />
             <Route path="/pages" element={<Pages />} />
+            <Route path="/myprofile" element={<Profile />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/profile/:user_id" element={<Profile />} />
           </Route>

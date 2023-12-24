@@ -6,12 +6,14 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
 import { useNavigate } from 'react-router-dom'
 import { useAppContext } from '../context/context'
 
-const UserProfile = ({ name, avatar, isFollowing }) => {
-  const { setLightBoxImage, toggleLightbox, min600 } = useAppContext()
+const UserProfile = ({ name, avatar, isFollowing, admin }) => {
+  const { setLightBoxImage, toggleLightbox, min600, updateSelectedTab } =
+    useAppContext()
   const navigate = useNavigate()
 
   const handleGoBack = () => {
     navigate('/')
+    updateSelectedTab(1)
   }
   return (
     <motion.div
@@ -60,9 +62,11 @@ const UserProfile = ({ name, avatar, isFollowing }) => {
             {name}
           </Typography>
         </ButtonBase>
-        <Button variant="contained">
-          {isFollowing ? 'Message' : 'Follow'}
-        </Button>
+        {admin ? null : (
+          <Button variant="contained">
+            {isFollowing ? 'Message' : 'Follow'}
+          </Button>
+        )}
         <Box sx={{ marginTop: '2rem' }}>
           <FollowerProfiles />
         </Box>

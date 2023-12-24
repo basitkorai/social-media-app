@@ -10,7 +10,7 @@ let systemTheme = isThemeDark ? 'dark' : 'light'
 const initialState = {
   isMode: systemTheme,
   isSelectedUser: null,
-  isDrawerOpen: false,
+  isSelectedTab: 1,
   isLightboxOpen: false,
   isLightboxImage: null,
 }
@@ -41,14 +41,22 @@ const ContextProvider = ({ children }) => {
       payload: lightboxState,
     })
   }
-  const selectUser = (user_id, cb) => {
+  const updateSelectedTab = (tab) => {
+    dispatch({
+      type: 'UPDATE_TAB',
+      payload: tab,
+    })
+  }
+  const selectUser = (user_id, cb, param) => {
     const clickedProfile = users.find((user) => user.user_id === user_id)
 
     dispatch({
       type: 'SELECT_USER',
       payload: clickedProfile,
     })
-    if (cb) {
+    if (param) {
+      cb(`${param}`)
+    } else {
       cb(`/profile/${user_id}`)
     }
   }
@@ -60,6 +68,7 @@ const ContextProvider = ({ children }) => {
     selectUser,
     setLightBoxImage,
     toggleLightbox,
+    updateSelectedTab,
   }
   return (
     <AppContext.Provider value={{ ...appState }}>

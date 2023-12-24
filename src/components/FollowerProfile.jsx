@@ -39,6 +39,8 @@ const FollowerProfiles = () => {
               </Box>
             </ButtonBase>
           )
+        } else {
+          return null
         }
       })}
     </>
