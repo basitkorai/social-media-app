@@ -2,6 +2,7 @@ import React from 'react'
 import { AnimatePresence } from 'framer-motion'
 import { useAppContext } from '../context/context'
 import UserProfile from '../components/UserProfile'
+import { Typography } from '@mui/material'
 
 const Profile = () => {
   const { isSelectedUser } = useAppContext()
