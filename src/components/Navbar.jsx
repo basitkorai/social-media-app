@@ -8,10 +8,11 @@ import {
   styled,
   IconButton,
   ClickAwayListener,
+  useTheme,
 } from '@mui/material'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
-import { Logout, Mail, Notifications } from '@mui/icons-material'
+import { Logout, Notifications } from '@mui/icons-material'
 import SearchIcon from '@mui/icons-material/Search'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
@@ -20,6 +21,7 @@ import AccountBoxIcon from '@mui/icons-material/AccountBox'
 import { useState } from 'react'
 import Logo from './Logo'
 import { useAppContext } from '../context/context'
+import { NavLink } from 'react-router-dom'
 
 const menuIconStyles = { marginRight: '0.5rem' }
 const StyledToolbar = styled(Toolbar)({
@@ -54,8 +56,9 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const { isMode, updateTheme } = useAppContext()
+  const { palette } = useTheme()
 
-  const iconColor = { color: isMode === 'dark' ? '#34d399' : '#fff' }
+  const iconColor = { color: palette.text.primary }
   const handleClose = () => {
     setIsOpen(false)
   }
@@ -139,7 +142,12 @@ const Navbar = () => {
       >
         <MenuItem onClick={handleClose}>
           <AccountBoxIcon sx={menuIconStyles} />
-          Profile
+          <NavLink
+            to={'/myprofile'}
+            style={{ color: palette.text.primary, textDecoration: 'none' }}
+          >
+            Profile
+          </NavLink>
         </MenuItem>
         <MenuItem onClick={handleClose}>
           <Settings sx={menuIconStyles} />

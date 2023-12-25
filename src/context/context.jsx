@@ -9,7 +9,7 @@ let systemTheme = isThemeDark ? 'dark' : 'light'
 
 const initialState = {
   isMode: systemTheme,
-  isSelectedUser: null,
+  isSelectedUser: users[users.length - 1],
   isSelectedTab: 1,
   isLightboxOpen: false,
   isLightboxImage: null,
