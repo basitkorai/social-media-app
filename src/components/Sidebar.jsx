@@ -6,7 +6,6 @@ const Sidebar = () => {
     <Box
       sx={{
         minWidth: '13.113125rem',
-        display: { xs: 'none', md: 'block' },
       }}
       flex={1.5}
     >

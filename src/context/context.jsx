@@ -17,6 +17,8 @@ const initialState = {
 const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
   const min600 = useMediaQuery('(min-width: 600px)')
+  const min850 = useMediaQuery('(min-width: 850px)')
+  const min900 = useMediaQuery('(min-width: 900px)')
 
   const updateTheme = () => {
     const mode = state.isMode === 'light' ? 'dark' : 'light'
@@ -64,6 +66,8 @@ const ContextProvider = ({ children }) => {
   const appState = {
     ...state,
     min600,
+    min850,
+    min900,
     updateTheme,
     selectUser,
     setLightBoxImage,
