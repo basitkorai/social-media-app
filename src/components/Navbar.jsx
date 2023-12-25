@@ -29,11 +29,19 @@ const StyledToolbar = styled(Toolbar)({
   justifyContent: 'space-between',
 })
 
-const Search = styled('div')(({ theme }) => ({
-  backgroundColor: theme.palette.primary.main,
+const Search = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  backgroundColor:
+    theme.palette.mode === 'dark'
+      ? theme.palette.primary.main
+      : theme.palette.primary.light,
   paddingInline: '1rem',
   width: '80%',
   borderRadius: '20px',
+  '&:enabled': {
+    outline: `2px double ${theme.palette.warning.light}`,
+  },
 }))
 
 const Icons = styled(Box)(({ theme }) => ({
@@ -56,7 +64,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [isSearchValue, setIsSearchValue] = useState('')
-  const { isMode, updateTheme } = useAppContext()
+  const { isMode, updateTheme, min850 } = useAppContext()
   const { palette } = useTheme()
 
   const iconColor = { color: palette.text.primary }
@@ -72,6 +80,7 @@ const Navbar = () => {
             marginLeft: 'auto',
             display: 'flex',
             justifyContent: 'center',
+            gap: { sm: 0, md: '0.625rem' },
           }}
         >
           {isSearchOpen ? null : (
@@ -79,7 +88,7 @@ const Navbar = () => {
               {isMode === 'dark' ? <DarkModeIcon /> : <LightModeIcon />}
             </IconButton>
           )}
-          {isSearchOpen ? (
+          {isSearchOpen || min850 ? (
             <ClickAwayListener onClickAway={() => setIsSearchOpen(false)}>
               <Search>
                 <InputBase
