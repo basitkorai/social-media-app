@@ -30,8 +30,8 @@ const StyledToolbar = styled(Toolbar)({
 })
 
 const Search = styled('div')(({ theme }) => ({
-  backgroundColor: 'white',
-  paddingInline: '0.3rem',
+  backgroundColor: theme.palette.primary.main,
+  paddingInline: '1rem',
   width: '80%',
   borderRadius: '20px',
 }))
@@ -87,10 +87,10 @@ const Navbar = () => {
                   variant="outlined"
                   sx={{
                     width: '100%',
-
+                    color: '#000',
                     '& input::placeholder': {
                       color: 'black',
-                      padding: '1rem',
+                      padding: 'rem',
                     },
                   }}
                 />
