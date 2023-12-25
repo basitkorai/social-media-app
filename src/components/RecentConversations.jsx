@@ -37,8 +37,8 @@ const RecentConversations = () => {
       <ListItem alignItems="flex-start">
         <ListItemAvatar>
           <Avatar
-            alt="Travis Howard"
-            src="http://material-ui.com/static/images/avatar/2.jpg"
+            alt="Julie Allison"
+            src="https://images.pexels.com/photos/1821095/pexels-photo-1821095.jpeg?auto=compress&cs=tinysrgb&w=600"
           />
         </ListItemAvatar>
         <ListItemText
