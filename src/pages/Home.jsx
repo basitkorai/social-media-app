@@ -3,12 +3,12 @@ import Feed from '../components/Feed'
 import Rightbar from '../components/Rightbar'
 import Add from '../components/Add'
 
-const Home = ({ sm }) => {
+const Home = ({ md }) => {
   return (
     <>
       <Feed />
-      {sm && <Rightbar />}
-      <Add biggerScreen={sm} />
+      {md && <Rightbar />}
+      <Add biggerScreen={md} />
     </>
   )
 }

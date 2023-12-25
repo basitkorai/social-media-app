@@ -8,7 +8,7 @@ import { useAppContext } from '../context/context'
 import { Outlet } from 'react-router-dom'
 
 const Layout = () => {
-  const { isLightboxOpen, min600 } = useAppContext()
+  const { isLightboxOpen, min900 } = useAppContext()
   return (
     <>
       <Box
@@ -20,7 +20,7 @@ const Layout = () => {
       >
         <Navbar />
         <Stack direction="row" justifyContent="space-between">
-          {min600 ? <Sidebar /> : <BottomNavigation />}
+          {min900 ? <Sidebar /> : <BottomNavigation />}
           <Outlet />
         </Stack>
         {isLightboxOpen && <Lightbox />}

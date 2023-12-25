@@ -10,14 +10,14 @@ import ThemeContextProvider from './context/ThemeContext'
 import Profile from './pages/Profile'
 
 function App() {
-  const { min600 } = useAppContext()
+  const { min850 } = useAppContext()
 
   return (
     <ThemeContextProvider>
       <HashRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Home sm={min600} />} />
+            <Route index element={<Home md={min850} />} />
             <Route path="/shop" element={<Shop />} />
             <Route path="/friends" element={<Friends />} />
             <Route path="/groups" element={<Groups />} />
