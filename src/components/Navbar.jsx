@@ -55,6 +55,7 @@ const UserBox = styled(Box)(({ theme }) => ({
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isSearchOpen, setIsSearchOpen] = useState(false)
+  const [isSearchValue, setIsSearchValue] = useState('')
   const { isMode, updateTheme } = useAppContext()
   const { palette } = useTheme()
 
@@ -82,6 +83,10 @@ const Navbar = () => {
             <ClickAwayListener onClickAway={() => setIsSearchOpen(false)}>
               <Search>
                 <InputBase
+                  value={isSearchValue}
+                  onChange={(e) => {
+                    setIsSearchValue(e.target.value)
+                  }}
                   color="primary"
                   placeholder="Search"
                   variant="outlined"
