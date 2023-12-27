@@ -16,7 +16,9 @@ export default function BottomNavigation() {
   useEffect(() => {
     const selectedTab = pathname.includes('/myprofile')
       ? 2
-      : pathname === '/' || '/login' || pathname.includes('/profile')
+      : pathname === '/' ||
+        pathname === '/login' ||
+        pathname.includes('/profile')
       ? 1
       : 0
     updateSelectedTab(selectedTab)
