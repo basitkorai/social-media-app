@@ -65,7 +65,6 @@ const Navbar = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [isSearchValue, setIsSearchValue] = useState('')
   const { isMode, updateTheme, min850 } = useAppContext()
-  const navigate = useNavigate()
   const { palette } = useTheme()
   const navigate = useNavigate()
 
