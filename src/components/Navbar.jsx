@@ -67,8 +67,14 @@ const Navbar = () => {
   const { isMode, updateTheme, min850 } = useAppContext()
   const navigate = useNavigate()
   const { palette } = useTheme()
+  const navigate = useNavigate()
 
   const iconColor = { color: palette.text.primary }
+
+  const handleProfileClick = () => {
+    selectUser('2019', navigate, '/myprofile')
+    handleClose()
+  }
   const handleClose = () => {
     setIsOpen(false)
   }
@@ -159,14 +165,9 @@ const Navbar = () => {
           horizontal: 'right',
         }}
       >
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={handleProfileClick}>
           <AccountBoxIcon sx={menuIconStyles} />
-          <NavLink
-            to={'/myprofile'}
-            style={{ color: palette.text.primary, textDecoration: 'none' }}
-          >
-            Profile
-          </NavLink>
+          Profile
         </MenuItem>
         <MenuItem onClick={handleClose}>
           <Settings sx={menuIconStyles} />
