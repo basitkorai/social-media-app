@@ -23,6 +23,7 @@ import Logo from './Logo'
 import { useAppContext } from '../context/context'
 import { NavLink, useNavigate } from 'react-router-dom'
 
+
 const menuIconStyles = { marginRight: '0.5rem' }
 const StyledToolbar = styled(Toolbar)({
   display: 'flex',
@@ -64,7 +65,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [isSearchValue, setIsSearchValue] = useState('')
-  const { isMode, updateTheme, min850 } = useAppContext()
+  const { isMode, updateTheme, min850, selectUser } = useAppContext()
   const { palette } = useTheme()
   const navigate = useNavigate()
 
