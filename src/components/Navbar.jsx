@@ -21,7 +21,7 @@ import AccountBoxIcon from '@mui/icons-material/AccountBox'
 import { useState } from 'react'
 import Logo from './Logo'
 import { useAppContext } from '../context/context'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 const menuIconStyles = { marginRight: '0.5rem' }
 const StyledToolbar = styled(Toolbar)({
@@ -65,10 +65,15 @@ const Navbar = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [isSearchValue, setIsSearchValue] = useState('')
   const { isMode, updateTheme, min850 } = useAppContext()
+  const navigate = useNavigate()
   const { palette } = useTheme()
 
   const iconColor = { color: palette.text.primary }
   const handleClose = () => {
+    setIsOpen(false)
+  }
+  const handleLogOut = () => {
+    navigate('/login')
     setIsOpen(false)
   }
   return (
@@ -167,7 +172,7 @@ const Navbar = () => {
           <Settings sx={menuIconStyles} />
           Settings
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={handleLogOut}>
           <Logout sx={menuIconStyles} />
           Logout
         </MenuItem>

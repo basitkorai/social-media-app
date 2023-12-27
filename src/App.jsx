@@ -8,6 +8,8 @@ import Groups from './pages/Groups'
 import Pages from './pages/Pages'
 import ThemeContextProvider from './context/ThemeContext'
 import Profile from './pages/Profile'
+import Logout from './pages/LogIn'
+import LogIn from './pages/LogIn'
 
 function App() {
   const { min850 } = useAppContext()
@@ -25,6 +27,7 @@ function App() {
             <Route path="/myprofile" element={<Profile />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/profile/:user_id" element={<Profile />} />
+            <Route path="/login" element={<LogIn />} />
           </Route>
         </Routes>
       </HashRouter>
