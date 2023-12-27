@@ -21,7 +21,8 @@ import AccountBoxIcon from '@mui/icons-material/AccountBox'
 import { useState } from 'react'
 import Logo from './Logo'
 import { useAppContext } from '../context/context'
-import { useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
+
 
 const menuIconStyles = { marginRight: '0.5rem' }
 const StyledToolbar = styled(Toolbar)({
@@ -75,6 +76,10 @@ const Navbar = () => {
     handleClose()
   }
   const handleClose = () => {
+    setIsOpen(false)
+  }
+  const handleLogOut = () => {
+    navigate('/login')
     setIsOpen(false)
   }
   return (
@@ -168,7 +173,7 @@ const Navbar = () => {
           <Settings sx={menuIconStyles} />
           Settings
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={handleLogOut}>
           <Logout sx={menuIconStyles} />
           Logout
         </MenuItem>
