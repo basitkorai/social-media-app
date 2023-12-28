@@ -20,7 +20,7 @@ const likeSound = new Audio(sound)
 const Post = ({ post }) => {
   const { toggleLightbox, setLightBoxImage, selectUser } = useAppContext()
   const { post_date, post_image, text, user } = post
-  const { user_id } = user
+  const { user_id, name } = user
   const navigate = useNavigate()
 
   const handleGoToProfile = () => {
@@ -55,7 +55,7 @@ const Post = ({ post }) => {
       <CardActionArea sx={{ overflow: 'hidden' }}>
         <CardMedia
           onClick={() => {
-            setLightBoxImage([{ src: post_image }])
+            setLightBoxImage([{ src: post_image, title: name }])
             toggleLightbox(true)
           }}
           sx={{
