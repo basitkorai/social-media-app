@@ -64,8 +64,14 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [isSearchValue, setIsSearchValue] = useState('')
-  const { isMode, updateTheme, min850, selectUser, setIsUserLoggedIn } =
-    useAppContext()
+  const {
+    isMode,
+    updateTheme,
+    min850,
+    selectUser,
+    isUserLoggedIn,
+    setIsUserLoggedIn,
+  } = useAppContext()
   const { palette } = useTheme()
   const navigate = useNavigate()
 
@@ -144,11 +150,17 @@ const Navbar = () => {
           />
         </Icons>
         <UserBox>
-          <Avatar
-            onClick={() => setIsOpen(true)}
-            sx={{ width: 30, height: 30, cursor: 'pointer' }}
-            src="https://images.pexels.com/photos/1326946/pexels-photo-1326946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          />
+          {isUserLoggedIn ? (
+            <Avatar
+              onClick={() => setIsOpen(true)}
+              sx={{ width: 30, height: 30, cursor: 'pointer' }}
+              src="https://images.pexels.com/photos/1326946/pexels-photo-1326946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            />
+          ) : (
+            <IconButton>
+              <Settings />
+            </IconButton>
+          )}
         </UserBox>
       </StyledToolbar>
       <Menu
