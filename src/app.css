@@ -1,4 +1,7 @@
 body {
-  background-color: darkslategray;
   margin: 0 !important;
+}
+
+.yarl__container {
+  background: hsla(0, 0%, 0%, 95%) !important;
 }

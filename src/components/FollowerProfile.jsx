@@ -2,11 +2,14 @@ import { Avatar, Box, ButtonBase, Typography } from '@mui/material'
 import users from '../data/users'
 import { useAppContext } from '../context/context'
 import { useNavigate } from 'react-router-dom'
+import { useTheme } from '@emotion/react'
 
 const FollowerProfiles = () => {
   const navigate = useNavigate()
-  const { isSelectedUser, selectUser } = useAppContext()
+  const { isSelectedUser, selectUser, isMode } = useAppContext()
   const { user_id } = isSelectedUser
+  const { palette } = useTheme()
+  // console.log(palette)
   const handleGoToProfile = (user_id) => {
     selectUser(user_id, navigate)
   }
@@ -26,9 +29,16 @@ const FollowerProfiles = () => {
                 justifyContent: 'flex-start',
                 gap: '1rem',
                 marginBottom: '0.3rem',
-                width: '100%',
+                width: {
+                  xs: '100%',
+                  md: 400,
+                },
                 padding: '0.5rem',
                 borderRadius: '0.4rem',
+                background: `${
+                  isMode === 'light' ? palette.grey.A200 : 'auto'
+                }`,
+                color: `${palette.text.main}`,
               }}
             >
               <Avatar alt={name} src={avatar} />

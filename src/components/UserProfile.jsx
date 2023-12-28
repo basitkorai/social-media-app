@@ -67,7 +67,13 @@ const UserProfile = ({ name, avatar, isFollowing, admin }) => {
             {isFollowing ? 'Message' : 'Follow'}
           </Button>
         )}
-        <Box sx={{ marginTop: '2rem' }}>
+        <Box
+          sx={{
+            marginTop: '2rem',
+            display: 'grid',
+            placeContent: 'center',
+          }}
+        >
           <FollowerProfiles />
         </Box>
       </Box>
