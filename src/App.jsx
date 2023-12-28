@@ -5,10 +5,8 @@ import Layout from './pages/Layout'
 import Friends from './pages/Friends'
 import Shop from './pages/Shop'
 import Groups from './pages/Groups'
-import Pages from './pages/Pages'
 import ThemeContextProvider from './context/ThemeContext'
 import Profile from './pages/Profile'
-import Logout from './pages/LogIn'
 import LogIn from './pages/LogIn'
 
 function App() {
@@ -23,7 +21,6 @@ function App() {
             <Route path="/shop" element={<Shop />} />
             <Route path="/friends" element={<Friends />} />
             <Route path="/groups" element={<Groups />} />
-            <Route path="/pages" element={<Pages />} />
             <Route path="/myprofile" element={<Profile />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/profile/:user_id" element={<Profile />} />
