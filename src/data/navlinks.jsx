@@ -12,11 +12,6 @@ const navlinks = [
     icon: <HomeIcon color="primary" />,
   },
   {
-    route: 'Pages',
-    link: '/pages',
-    icon: <ArticleIcon color="primary" />,
-  },
-  {
     route: 'Groups',
     link: '/groups',
     icon: <PeopleAltIcon color="primary" />,
@@ -33,7 +28,7 @@ const navlinks = [
   },
   {
     route: 'Logout',
-    link: '/logout',
+    link: '/login',
     icon: <LogoutIcon color="primary" />,
   },
 ]

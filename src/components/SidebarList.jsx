@@ -33,7 +33,6 @@ const SidebarList = () => {
               >
                 <ListItemButton>
                   <ListItemIcon>{link.icon}</ListItemIcon>
-
                   {link.route}
                 </ListItemButton>
               </ListItem>
