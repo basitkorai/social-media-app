@@ -30,6 +30,12 @@ const reducer = (state, action) => {
         isSelectedTab: action.payload,
       }
     }
+    case 'UPDATE_LOGIN_STATE': {
+      return {
+        ...state,
+        isUserLoggedIn: action.payload,
+      }
+    }
   }
 }
 

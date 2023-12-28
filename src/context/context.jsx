@@ -13,6 +13,7 @@ const initialState = {
   isSelectedTab: 1,
   isLightboxOpen: false,
   isLightboxImage: null,
+  isUserLoggedIn: false,
 }
 const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
@@ -62,6 +63,12 @@ const ContextProvider = ({ children }) => {
       cb(`/profile/${user_id}`)
     }
   }
+  const setIsUserLoggedIn = (state) => {
+    dispatch({
+      type: 'UPDATE_LOGIN_STATE',
+      payload: state,
+    })
+  }
 
   const appState = {
     ...state,
@@ -73,7 +80,9 @@ const ContextProvider = ({ children }) => {
     setLightBoxImage,
     toggleLightbox,
     updateSelectedTab,
+    setIsUserLoggedIn,
   }
+
   return (
     <AppContext.Provider value={{ ...appState }}>
       {children}

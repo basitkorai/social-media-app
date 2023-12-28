@@ -9,7 +9,8 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { useAppContext } from '../context/context'
 
 export default function BottomNavigation() {
-  const { selectUser, isSelectedTab, updateSelectedTab } = useAppContext()
+  const { selectUser, isSelectedTab, updateSelectedTab, isUserLoggedIn } =
+    useAppContext()
   const navigate = useNavigate()
   const { pathname } = useLocation()
 
@@ -40,20 +41,28 @@ export default function BottomNavigation() {
       >
         <BottomNavigationAction
           onClick={() => {
-            navigateTo('/shop')
+            if (isUserLoggedIn) {
+              navigateTo('/shop')
+            }
           }}
           label="Shop"
           icon={<StoreIcon />}
         />
         <BottomNavigationAction
           onClick={() => {
-            navigateTo('/')
+            if (isUserLoggedIn) {
+              navigateTo('/')
+            }
           }}
           label="Home"
           icon={<HomeIcon />}
         />
         <BottomNavigationAction
-          onClick={goToMyProfile}
+          onClick={() => {
+            if (isUserLoggedIn) {
+              goToMyProfile()
+            }
+          }}
           label="Me"
           icon={<PersonIcon />}
         />
