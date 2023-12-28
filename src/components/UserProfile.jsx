@@ -36,7 +36,7 @@ const UserProfile = ({ name, avatar, isFollowing, admin }) => {
           component="div"
           disableRipple={min600}
           onClick={() => {
-            setLightBoxImage([{ src: avatar }])
+            setLightBoxImage([{ src: avatar, title: name }])
             toggleLightbox(true)
           }}
           sx={{
