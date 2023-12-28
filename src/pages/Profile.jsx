@@ -2,7 +2,6 @@ import React from 'react'
 import { AnimatePresence } from 'framer-motion'
 import { useAppContext } from '../context/context'
 import UserProfile from '../components/UserProfile'
-import { Typography } from '@mui/material'
 
 const Profile = () => {
   const { isSelectedUser } = useAppContext()
@@ -10,11 +9,7 @@ const Profile = () => {
 
   return (
     <AnimatePresence>
-      {isSelectedUser ? (
-        <UserProfile {...isSelectedUser} />
-      ) : (
-        <Typography variant="h3">No Profile Provided</Typography>
-      )}
+      <UserProfile {...isSelectedUser} />
     </AnimatePresence>
   )
 }

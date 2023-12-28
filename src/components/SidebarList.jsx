@@ -7,11 +7,13 @@ import {
 } from '@mui/material'
 import { useTheme } from '@mui/material'
 
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import navlinks from '../data/navlinks'
 
 const SidebarList = () => {
   const { palette } = useTheme()
+  const { pathname } = useLocation()
+  const isLoggedOut = pathname === '/login'
   return (
     <Box flex={1} p={2}>
       <List>
@@ -25,7 +27,7 @@ const SidebarList = () => {
                 fontFamily: 'Inter, sans-serif',
                 padding: '0.5rem',
               }}
-              to={link.link}
+              to={isLoggedOut ? '#' : link.link}
             >
               <ListItem
                 disablePadding

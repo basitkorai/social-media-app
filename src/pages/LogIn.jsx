@@ -4,9 +4,11 @@ import { useAppContext } from '../context/context.jsx'
 import { useNavigate } from 'react-router-dom'
 
 const LogIn = () => {
+  const { setIsUserLoggedIn } = useAppContext()
   const navigate = useNavigate()
 
   const handleLogIn = () => {
+    setIsUserLoggedIn(true)
     navigate('/')
   }
   return (
