@@ -14,6 +14,7 @@ const initialState = {
   isLightboxOpen: false,
   isLightboxImage: null,
   isUserLoggedIn: false,
+  products: null,
 }
 const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
@@ -69,6 +70,12 @@ const ContextProvider = ({ children }) => {
       payload: state,
     })
   }
+  const setProducts = (products) => {
+    dispatch({
+      type: 'UPDATE_PRODUCTS',
+      payload: products,
+    })
+  }
 
   const appState = {
     ...state,
@@ -81,6 +88,7 @@ const ContextProvider = ({ children }) => {
     toggleLightbox,
     updateSelectedTab,
     setIsUserLoggedIn,
+    setProducts,
   }
 
   return (

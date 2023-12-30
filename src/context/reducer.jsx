@@ -36,6 +36,12 @@ const reducer = (state, action) => {
         isUserLoggedIn: action.payload,
       }
     }
+    case 'UPDATE_PRODUCTS': {
+      return {
+        ...state,
+        products: action.payload,
+      }
+    }
   }
 }
 
