@@ -21,6 +21,16 @@ const ThemeContextProvider = ({ children }) => {
     typography: {
       fontFamily: ['Inter', 'sans-serif'].join(','),
     },
+    breakpoints: {
+      values: {
+        xs: 0,
+        mb: 450,
+        sm: 600,
+        md: 900,
+        lg: 1200,
+        xl: 1536,
+      },
+    },
   })
   return (
     <ThemeContext.Provider value={{ ...muiTheme }}>
