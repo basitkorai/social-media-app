@@ -27,13 +27,20 @@ const Shop = () => {
   }
   return (
     <Box
-      flex={1}
+      flex={7}
       sx={{
         fontSize: '7rem',
         fontFamily: 'Inter, sans-serif',
         display: 'grid',
         justifyItems: 'center',
         gap: '1rem',
+        gridTemplateColumns: {
+          xs: '1fr',
+          mb: '1fr 1fr',
+          sm: '1fr 1fr 1fr',
+          lg: '1fr 1fr 1fr 1fr',
+          xl: '1fr 1fr 1fr 1fr 1fr',
+        },
         paddingTop: '1rem',
         paddingBottom: '4rem',
       }}
