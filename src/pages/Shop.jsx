@@ -33,6 +33,7 @@ const Shop = () => {
         fontFamily: 'Inter, sans-serif',
         display: 'grid',
         justifyItems: 'center',
+        paddingTop: '1rem',
         gap: '1rem',
         gridTemplateColumns: {
           xs: '1fr',
@@ -41,8 +42,6 @@ const Shop = () => {
           lg: '1fr 1fr 1fr 1fr',
           xl: '1fr 1fr 1fr 1fr 1fr',
         },
-        paddingTop: '1rem',
-        paddingBottom: '4rem',
       }}
     >
       {products.map((product) => {

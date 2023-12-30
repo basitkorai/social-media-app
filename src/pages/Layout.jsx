@@ -16,6 +16,7 @@ const Layout = () => {
         color="text.primary"
         sx={{
           margin: '0',
+          paddingBottom: '4rem',
         }}
       >
         <Navbar />
