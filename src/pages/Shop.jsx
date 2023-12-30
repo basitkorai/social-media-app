@@ -11,7 +11,6 @@ const Shop = () => {
     const fetchData = async () => {
       try {
         const { data } = await axios('https://fakestoreapi.com/products')
-        console.log(data)
         setProducts(data)
       } catch (error) {
         setIsError({ error: true, message: error.message })
@@ -39,7 +38,7 @@ const Shop = () => {
         paddingBottom: '4rem',
       }}
     >
-      {products.map((product, index) => {
+      {products.map((product) => {
         const { id } = product
         return <Product {...product} key={id} />
       })}

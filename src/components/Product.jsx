@@ -4,9 +4,12 @@ import {
   CardContent,
   CardMedia,
   Chip,
+  IconButton,
   Typography,
 } from '@mui/material'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import { useAppContext } from '../context/context'
+import { Box } from '@mui/system'
 
 const Product = ({ image, title, description, id, price }) => {
   const { setLightBoxImage, toggleLightbox } = useAppContext()
@@ -25,16 +28,29 @@ const Product = ({ image, title, description, id, price }) => {
           image={image}
           alt={title}
         />
-        <CardContent>
-          <Typography gutterBottom variant="h6" component="h2">
-            {title}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {description.slice(0, 100) + `${description.length > 100 && '...'}`}
-          </Typography>
-          <Chip sx={{ marginTop: '1rem' }} label={price} color="success" />
-        </CardContent>
       </CardActionArea>
+      <CardContent>
+        <Typography gutterBottom variant="h6" component="h2">
+          {title}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {description.slice(0, 100) + `${description.length > 100 && '...'}`}
+        </Typography>
+        <Box
+          sx={{
+            marginTop: '1rem',
+            paddingInline: '0.5rem',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+          }}
+        >
+          <Chip label={price} color="primary" />
+          <IconButton color="primary" aria-label="add to shopping cart">
+            <ShoppingCartIcon />
+          </IconButton>
+        </Box>
+      </CardContent>
     </Card>
   )
 }
