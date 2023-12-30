@@ -36,7 +36,7 @@ const Shop = () => {
         justifyItems: 'center',
         gap: '1rem',
         paddingTop: '1rem',
-        paddingBlock: '4rem',
+        paddingBottom: '4rem',
       }}
     >
       {products.map((product, index) => {
