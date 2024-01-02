@@ -12,7 +12,7 @@ import {
 } from '@mui/material'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
-import { Logout, Notifications } from '@mui/icons-material'
+import { Article, Logout, Notifications } from '@mui/icons-material'
 import SearchIcon from '@mui/icons-material/Search'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
@@ -89,6 +89,11 @@ const Navbar = () => {
     navigate('/login')
     setIsOpen(false)
   }
+  const handlePagesClick = () => {
+    navigate('/pages')
+    setIsOpen(false)
+  }
+
   return (
     <AppBar sx={{ color: 'white', position: 'sticky', top: '0' }}>
       <StyledToolbar>
@@ -185,6 +190,10 @@ const Navbar = () => {
         <MenuItem onClick={handleClose}>
           <Settings sx={menuIconStyles} />
           Settings
+        </MenuItem>
+        <MenuItem onClick={handlePagesClick}>
+          <Article sx={menuIconStyles} />
+          Pages
         </MenuItem>
         <MenuItem onClick={handleLogOut}>
           <Logout sx={menuIconStyles} />

@@ -12,9 +12,9 @@ const navlinks = [
     icon: <HomeIcon color="primary" />,
   },
   {
-    route: 'Groups',
-    link: '/groups',
-    icon: <PeopleAltIcon color="primary" />,
+    route: 'Pages',
+    link: '/pages',
+    icon: <ArticleIcon color="primary" />,
   },
   {
     route: 'Shop',

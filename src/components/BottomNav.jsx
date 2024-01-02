@@ -19,7 +19,8 @@ export default function BottomNavigation() {
       ? 2
       : pathname === '/' ||
         pathname === '/login' ||
-        pathname.includes('/profile')
+        pathname.includes('/profile') ||
+        pathname === '/pages'
       ? 1
       : 0
     updateSelectedTab(selectedTab)
@@ -54,7 +55,7 @@ export default function BottomNavigation() {
               navigateTo('/')
             }
           }}
-          label="Home"
+          label={pathname === '/' ? 'Home' : 'Go to Home'}
           icon={<HomeIcon />}
         />
         <BottomNavigationAction
