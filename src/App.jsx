@@ -26,7 +26,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home md={min850} />} />
           <Route path="/shop" element={<Shop />} />
-          <Route path="/friends" element={<Friends />} />
+          <Route path="/followers" element={<Profile />} />
           <Route path="/groups" element={<Groups />} />
           <Route path="/myprofile" element={<Profile />} />
           <Route path="/profile" element={<Profile />} />

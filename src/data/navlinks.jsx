@@ -22,8 +22,8 @@ const navlinks = [
     icon: <StoreIcon color="primary" />,
   },
   {
-    route: 'Friends',
-    link: '/friends',
+    route: 'Followers',
+    link: '/followers',
     icon: <PersonIcon color="primary" />,
   },
   {

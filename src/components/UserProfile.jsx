@@ -72,8 +72,10 @@ const UserProfile = ({ name, avatar, isFollowing, admin }) => {
             marginTop: '2rem',
             display: 'grid',
             placeContent: 'center',
+            gap: '1rem',
           }}
         >
+          <Typography variant="h5">Followers</Typography>
           <FollowerProfiles />
         </Box>
       </Box>
