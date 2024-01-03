@@ -14,7 +14,7 @@ let initialState = {
   isSelectedTab: 1,
   isLightboxOpen: false,
   isLightboxImage: null,
-  isUserLoggedIn: localState.isUserLoggedIn || false,
+  isUserLoggedIn: localState?.isUserLoggedIn || false,
   products: null,
 }
 
