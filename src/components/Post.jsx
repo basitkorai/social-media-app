@@ -81,7 +81,11 @@ const Post = ({ post }) => {
         <IconButton disableRipple aria-label="add to favorites">
           <Checkbox
             onChange={(e) => {
-              if (e.target.checked) likeSound.play()
+              if (e.target.checked) {
+                likeSound.play()
+              } else {
+                navigator.vibrate(2000)
+              }
             }}
             color="error"
             icon={<FavoriteBorder />}
