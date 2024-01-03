@@ -31,6 +31,14 @@ const reducer = (state, action) => {
       }
     }
     case 'UPDATE_LOGIN_STATE': {
+      const previousState = JSON.parse(localStorage.getItem('state'))
+      localStorage.setItem(
+        'state',
+        JSON.stringify({
+          ...previousState,
+          isUserLoggedIn: action.payload,
+        })
+      )
       return {
         ...state,
         isUserLoggedIn: action.payload,

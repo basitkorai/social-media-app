@@ -7,15 +7,17 @@ const AppContext = createContext()
 const isThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches
 let systemTheme = isThemeDark ? 'dark' : 'light'
 
-const initialState = {
+const localState = JSON.parse(localStorage.getItem('state'))
+let initialState = {
   isMode: systemTheme,
   isSelectedUser: users[users.length - 1],
   isSelectedTab: 1,
   isLightboxOpen: false,
   isLightboxImage: null,
-  isUserLoggedIn: false,
+  isUserLoggedIn: localState?.isUserLoggedIn || false,
   products: null,
 }
+
 const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
   const min600 = useMediaQuery('(min-width: 600px)')
