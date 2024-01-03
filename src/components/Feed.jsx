@@ -1,8 +1,9 @@
 import { Box } from '@mui/material'
 import Post from './Post'
-import posts from '../data/Posts'
+import { useAppContext } from '../context/context'
 
 const Feed = () => {
+  const { posts } = useAppContext()
   return (
     <Box
       flex={4}

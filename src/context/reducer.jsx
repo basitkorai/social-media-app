@@ -1,4 +1,5 @@
 const reducer = (state, action) => {
+  const previousState = JSON.parse(localStorage.getItem('state'))
   switch (action.type) {
     case 'UPDATE_THEME': {
       return {
@@ -31,7 +32,6 @@ const reducer = (state, action) => {
       }
     }
     case 'UPDATE_LOGIN_STATE': {
-      const previousState = JSON.parse(localStorage.getItem('state'))
       localStorage.setItem(
         'state',
         JSON.stringify({
@@ -48,6 +48,29 @@ const reducer = (state, action) => {
       return {
         ...state,
         products: action.payload,
+      }
+    }
+    case 'LIKE_POST': {
+      const { posts, post_id } = action.payload
+      const postIndex = posts.findIndex((post) => post.post_id === post_id)
+      const post = posts[postIndex]
+
+      const updatedPost = { ...post, is_liked: !post.is_liked }
+      const updatedPosts = [
+        ...posts.slice(0, postIndex),
+        updatedPost,
+        ...posts.slice(postIndex + 1),
+      ]
+      localStorage.setItem(
+        'state',
+        JSON.stringify({
+          ...previousState,
+          posts: updatedPosts,
+        })
+      )
+      return {
+        ...state,
+        posts: updatedPosts,
       }
     }
   }

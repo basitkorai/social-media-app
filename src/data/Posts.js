@@ -12,6 +12,7 @@ const posts = [
     "post_date": "September 14, 2023",
     "text": "Enjoying a beautiful sunset.",
     "likes": 100,
+    "is_liked": false,
     "comments": [
       {
         "comment_id": "1",
@@ -38,6 +39,7 @@ const posts = [
     "post_date": "October 2, 2023",
     "text": "My new puppy!",
     "likes": 150,
+    "is_liked": false,
     "comments": [
       {
         "comment_id": "1",
@@ -58,6 +60,7 @@ const posts = [
     "post_date": "January 4, 2023",
     "text": "World Trade Center, New York City",
     "likes": "80k",
+    "is_liked": false,
     "comments": [
       {
         "comment_id": "1",
@@ -78,6 +81,7 @@ const posts = [
     "post_date": "3 hours ago",
     "text": "Checkout my review of Atomic Habits",
     "likes": "100k",
+    "is_liked": false,
     "comments": [
       {
         "comment_id": "1",
@@ -98,6 +102,7 @@ const posts = [
     "post_date": "9 hours ago",
     "text": "Captured this masterpiece while I was stuck in New York's Traffic",
     "likes": "60k",
+    "is_liked": false,
     "comments": [
       {
         "comment_id": "1",
@@ -118,6 +123,7 @@ const posts = [
     "post_date": "Febuary, 10, 2022",
     "text": "Trying to learn Japanese",
     "likes": "40k",
+    "is_liked": false,
     "comments": [
       {
         "comment_id": "1",
@@ -138,6 +144,7 @@ const posts = [
     "post_date": "November, 16, 2023",
     "text": "Packing up for a trip to Dublin",
     "likes": "78k",
+    "is_liked": false,
     "comments": [
       {
         "comment_id": "1",
@@ -158,6 +165,7 @@ const posts = [
     "post_date": "March 4, 2023",
     "text": "Waiting for my car to be fixed in Dublin, it's freezing here.",
     "likes": "98k",
+    "is_liked": false,
     "comments": [
       {
         "comment_id": "1",
@@ -178,6 +186,7 @@ const posts = [
     "post_date": "June 18, 2023",
     "text": "Reviewing tech is what I can do from the bottom of my heart.",
     "likes": "5.4k",
+    "is_liked": false,
     "comments": [
       {
         "comment_id": "1",
@@ -198,6 +207,7 @@ const posts = [
     "post_date": "September 14, 2023",
     "text": "I always wonder, why can't stay away from Junk Food",
     "likes": "8.4k",
+    "is_liked": false,
     "comments": [
       {
         "comment_id": "1",
