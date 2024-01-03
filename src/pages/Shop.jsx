@@ -4,6 +4,7 @@ import axios from 'axios'
 import Product from '../components/Product'
 import { Box } from '@mui/material'
 import { Helmet } from 'react-helmet-async'
+import Loading from '../components/Loading'
 
 const Shop = () => {
   const { products, setProducts } = useAppContext()
@@ -21,7 +22,7 @@ const Shop = () => {
     fetchData()
   }, [])
   if (!products && !isError.error) {
-    return <h1>Loading...</h1>
+    return <Loading />
   }
   if (isError.error) {
     return <h1>{isError.message}</h1>
