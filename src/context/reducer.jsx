@@ -73,6 +73,29 @@ const reducer = (state, action) => {
         posts: updatedPosts,
       }
     }
+    case 'SAVE_POST': {
+      const { posts, post_id } = action.payload
+      const postIndex = posts.findIndex((post) => post.post_id === post_id)
+      const post = posts[postIndex]
+
+      const updatedPost = { ...post, is_saved: !post.is_saved }
+      const updatedPosts = [
+        ...posts.slice(0, postIndex),
+        updatedPost,
+        ...posts.slice(postIndex + 1),
+      ]
+      localStorage.setItem(
+        'state',
+        JSON.stringify({
+          ...previousState,
+          posts: updatedPosts,
+        })
+      )
+      return {
+        ...state,
+        posts: updatedPosts,
+      }
+    }
   }
 }
 
