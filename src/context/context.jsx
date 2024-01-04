@@ -2,6 +2,7 @@ import { createContext, useContext, useReducer } from 'react'
 import reducer from './reducer'
 import { useMediaQuery } from '@mui/material'
 import users from '../data/users'
+import posts from '../data/Posts'
 const AppContext = createContext()
 
 const isThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -16,6 +17,7 @@ let initialState = {
   isLightboxImage: null,
   isUserLoggedIn: localState?.isUserLoggedIn || false,
   products: null,
+  posts: localState?.posts || posts,
 }
 
 const ContextProvider = ({ children }) => {
@@ -78,6 +80,12 @@ const ContextProvider = ({ children }) => {
       payload: products,
     })
   }
+  const likePost = (posts, post_id) => {
+    dispatch({
+      type: 'LIKE_POST',
+      payload: { posts, post_id },
+    })
+  }
 
   const appState = {
     ...state,
@@ -91,6 +99,7 @@ const ContextProvider = ({ children }) => {
     updateSelectedTab,
     setIsUserLoggedIn,
     setProducts,
+    likePost,
   }
 
   return (

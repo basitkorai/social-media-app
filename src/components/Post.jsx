@@ -14,17 +14,23 @@ import { CardActionArea, Checkbox } from '@mui/material'
 import sound from '../assets/sounds/like-sound.mp3'
 import { useAppContext } from '../context/context'
 import { useNavigate } from 'react-router-dom'
-import users from '../data/users'
+import { useState } from 'react'
 
 const likeSound = new Audio(sound)
 const Post = ({ post }) => {
-  const { toggleLightbox, setLightBoxImage, selectUser } = useAppContext()
-  const { post_date, post_image, text, user } = post
-  const { user_id, name } = user
+  const [isChecked, setIsChecked] = useState(post.is_liked)
+  const { toggleLightbox, setLightBoxImage, selectUser, posts, likePost } =
+    useAppContext()
   const navigate = useNavigate()
+  const { post_id, post_date, post_image, text, user, is_liked } = post
+  const { user_id, name } = user
 
   const handleGoToProfile = () => {
     selectUser(user_id, navigate)
+  }
+
+  const handleLikePost = (post_id) => {
+    likePost(posts, post_id)
   }
 
   return (
@@ -80,8 +86,11 @@ const Post = ({ post }) => {
       <CardActions disableSpacing>
         <IconButton disableRipple aria-label="add to favorites">
           <Checkbox
+            checked={isChecked}
             onChange={(e) => {
               if (e.target.checked) likeSound.play()
+              setIsChecked(e.target.checked)
+              handleLikePost(post_id)
             }}
             color="error"
             icon={<FavoriteBorder />}
