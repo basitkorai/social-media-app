@@ -13,6 +13,7 @@ const posts = [
     "text": "Enjoying a beautiful sunset.",
     "likes": 100,
     "is_liked": false,
+    "is_saved": false,
     "comments": [
       {
         "comment_id": "1",
@@ -40,6 +41,7 @@ const posts = [
     "text": "My new puppy!",
     "likes": 150,
     "is_liked": false,
+    "is_saved": false,
     "comments": [
       {
         "comment_id": "1",
@@ -61,6 +63,7 @@ const posts = [
     "text": "World Trade Center, New York City",
     "likes": "80k",
     "is_liked": false,
+    "is_saved": false,
     "comments": [
       {
         "comment_id": "1",
@@ -82,6 +85,7 @@ const posts = [
     "text": "Checkout my review of Atomic Habits",
     "likes": "100k",
     "is_liked": false,
+    "is_saved": false,
     "comments": [
       {
         "comment_id": "1",
@@ -103,6 +107,7 @@ const posts = [
     "text": "Captured this masterpiece while I was stuck in New York's Traffic",
     "likes": "60k",
     "is_liked": false,
+    "is_saved": false,
     "comments": [
       {
         "comment_id": "1",
@@ -124,6 +129,7 @@ const posts = [
     "text": "Trying to learn Japanese",
     "likes": "40k",
     "is_liked": false,
+    "is_saved": false,
     "comments": [
       {
         "comment_id": "1",
@@ -145,6 +151,7 @@ const posts = [
     "text": "Packing up for a trip to Dublin",
     "likes": "78k",
     "is_liked": false,
+    "is_saved": false,
     "comments": [
       {
         "comment_id": "1",
@@ -166,6 +173,7 @@ const posts = [
     "text": "Waiting for my car to be fixed in Dublin, it's freezing here.",
     "likes": "98k",
     "is_liked": false,
+    "is_saved": false,
     "comments": [
       {
         "comment_id": "1",
@@ -187,6 +195,7 @@ const posts = [
     "text": "Reviewing tech is what I can do from the bottom of my heart.",
     "likes": "5.4k",
     "is_liked": false,
+    "is_saved": false,
     "comments": [
       {
         "comment_id": "1",
@@ -208,6 +217,7 @@ const posts = [
     "text": "I always wonder, why can't stay away from Junk Food",
     "likes": "8.4k",
     "is_liked": false,
+    "is_saved": false,
     "comments": [
       {
         "comment_id": "1",

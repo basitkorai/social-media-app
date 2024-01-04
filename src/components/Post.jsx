@@ -18,9 +18,16 @@ import { useState } from 'react'
 
 const likeSound = new Audio(sound)
 const Post = ({ post }) => {
-  const [isChecked, setIsChecked] = useState(post.is_liked)
-  const { toggleLightbox, setLightBoxImage, selectUser, posts, likePost } =
-    useAppContext()
+  const [isLiked, setIsLiked] = useState(post.is_liked)
+  const [isSaved, setIsSaved] = useState(post.is_saved)
+  const {
+    toggleLightbox,
+    setLightBoxImage,
+    selectUser,
+    posts,
+    likePost,
+    savePost,
+  } = useAppContext()
   const navigate = useNavigate()
   const { post_id, post_date, post_image, text, user, is_liked } = post
   const { user_id, name } = user
@@ -31,6 +38,9 @@ const Post = ({ post }) => {
 
   const handleLikePost = (post_id) => {
     likePost(posts, post_id)
+  }
+  const handleSavePost = (post_id) => {
+    savePost(posts, post_id)
   }
 
   return (
@@ -86,10 +96,10 @@ const Post = ({ post }) => {
       <CardActions disableSpacing>
         <IconButton disableRipple aria-label="add to favorites">
           <Checkbox
-            checked={isChecked}
+            checked={isLiked}
             onChange={(e) => {
               if (e.target.checked) likeSound.play()
-              setIsChecked(e.target.checked)
+              setIsLiked(e.target.checked)
               handleLikePost(post_id)
             }}
             color="error"
@@ -99,7 +109,15 @@ const Post = ({ post }) => {
         </IconButton>
 
         <IconButton disableRipple aria-label="share">
-          <Checkbox icon={<BookmarkBorder />} checkedIcon={<Bookmark />} />
+          <Checkbox
+            checked={isSaved}
+            onChange={(e) => {
+              setIsSaved(e.target.checked)
+              handleSavePost(post_id)
+            }}
+            icon={<BookmarkBorder />}
+            checkedIcon={<Bookmark />}
+          />
         </IconButton>
         <IconButton aria-label="add to favorites">
           <ShareIcon />

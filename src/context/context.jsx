@@ -86,6 +86,12 @@ const ContextProvider = ({ children }) => {
       payload: { posts, post_id },
     })
   }
+  const savePost = (posts, post_id) => {
+    dispatch({
+      type: 'SAVE_POST',
+      payload: { posts, post_id },
+    })
+  }
 
   const appState = {
     ...state,
@@ -100,6 +106,7 @@ const ContextProvider = ({ children }) => {
     setIsUserLoggedIn,
     setProducts,
     likePost,
+    savePost,
   }
 
   return (
