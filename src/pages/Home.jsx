@@ -1,4 +1,3 @@
-import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import Feed from '../components/Feed'
 import Rightbar from '../components/Rightbar'

@@ -14,12 +14,9 @@ import { CardActionArea, Checkbox } from '@mui/material'
 import sound from '../assets/sounds/like-sound.mp3'
 import { useAppContext } from '../context/context'
 import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
 
 const likeSound = new Audio(sound)
 const Post = ({ post }) => {
-  const [isLiked, setIsLiked] = useState(post.is_liked)
-  const [isSaved, setIsSaved] = useState(post.is_saved)
   const {
     toggleLightbox,
     setLightBoxImage,
@@ -29,7 +26,8 @@ const Post = ({ post }) => {
     savePost,
   } = useAppContext()
   const navigate = useNavigate()
-  const { post_id, post_date, post_image, text, user, is_liked } = post
+  const { post_id, post_date, post_image, text, user, is_saved, is_liked } =
+    post
   const { user_id, name } = user
 
   const handleGoToProfile = () => {
@@ -96,10 +94,9 @@ const Post = ({ post }) => {
       <CardActions disableSpacing>
         <IconButton disableRipple aria-label="add to favorites">
           <Checkbox
-            checked={isLiked}
+            checked={is_liked}
             onChange={(e) => {
               if (e.target.checked) likeSound.play()
-              setIsLiked(e.target.checked)
               handleLikePost(post_id)
             }}
             color="error"
@@ -110,9 +107,8 @@ const Post = ({ post }) => {
 
         <IconButton disableRipple aria-label="share">
           <Checkbox
-            checked={isSaved}
+            checked={is_saved}
             onChange={(e) => {
-              setIsSaved(e.target.checked)
               handleSavePost(post_id)
             }}
             icon={<BookmarkBorder />}
