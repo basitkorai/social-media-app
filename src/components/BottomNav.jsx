@@ -20,7 +20,8 @@ export default function BottomNavigation() {
       : pathname === '/' ||
         pathname === '/login' ||
         pathname.includes('/profile') ||
-        pathname === '/pages'
+        pathname === '/pages' ||
+        pathname === '/saved_posts'
       ? 1
       : 0
     updateSelectedTab(selectedTab)

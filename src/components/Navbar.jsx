@@ -16,12 +16,13 @@ import { Article, Logout, Notifications } from '@mui/icons-material'
 import SearchIcon from '@mui/icons-material/Search'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
+import { Bookmark } from '@mui/icons-material'
 import { Settings } from '@mui/icons-material'
 import AccountBoxIcon from '@mui/icons-material/AccountBox'
 import { useState } from 'react'
 import Logo from './Logo'
 import { useAppContext } from '../context/context'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const menuIconStyles = { marginRight: '0.5rem' }
 const StyledToolbar = styled(Toolbar)({
@@ -91,6 +92,10 @@ const Navbar = () => {
   }
   const handlePagesClick = () => {
     navigate('/pages')
+    setIsOpen(false)
+  }
+  const handleSavedPostsClick = () => {
+    navigate('/saved_posts')
     setIsOpen(false)
   }
 
@@ -194,6 +199,10 @@ const Navbar = () => {
         <MenuItem onClick={handlePagesClick}>
           <Article sx={menuIconStyles} />
           Pages
+        </MenuItem>
+        <MenuItem onClick={handleSavedPostsClick}>
+          <Bookmark sx={menuIconStyles} />
+          Saved posts
         </MenuItem>
         <MenuItem onClick={handleLogOut}>
           <Logout sx={menuIconStyles} />

@@ -1,9 +1,9 @@
 import HomeIcon from '@mui/icons-material/Home'
 import PersonIcon from '@mui/icons-material/Person'
 import ArticleIcon from '@mui/icons-material/Article'
-import PeopleAltIcon from '@mui/icons-material/PeopleAlt'
 import StoreIcon from '@mui/icons-material/Store'
 import LogoutIcon from '@mui/icons-material/Logout'
+import { Bookmark } from '@mui/icons-material'
 
 const navlinks = [
   {
@@ -15,6 +15,11 @@ const navlinks = [
     route: 'Pages',
     link: '/pages',
     icon: <ArticleIcon color="primary" />,
+  },
+  {
+    route: 'Saved',
+    link: '/saved_posts',
+    icon: <Bookmark color="primary" />,
   },
   {
     route: 'Shop',

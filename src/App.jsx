@@ -8,6 +8,7 @@ import Shop from './pages/Shop'
 import Profile from './pages/Profile'
 import LogIn from './pages/LogIn'
 import Pages from './pages/Pages'
+import SavedPosts from './pages/SavedPosts'
 
 function App() {
   const { isUserLoggedIn, min850 } = useAppContext()
@@ -27,6 +28,7 @@ function App() {
           <Route path="/shop" element={<Shop />} />
           <Route path="/followers" element={<Profile />} />
           <Route path="/pages" element={<Pages />} />
+          <Route path="/saved_posts" element={<SavedPosts />} />
           <Route path="/myprofile" element={<Profile />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/profile/:user_id" element={<Profile />} />
