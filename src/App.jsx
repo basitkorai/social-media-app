@@ -9,6 +9,7 @@ import Profile from './pages/Profile'
 import LogIn from './pages/LogIn'
 import Pages from './pages/Pages'
 import SavedPosts from './pages/SavedPosts'
+import UserProfile from './pages/UserProfile'
 
 function App() {
   const { isUserLoggedIn, min850 } = useAppContext()
@@ -29,7 +30,7 @@ function App() {
           <Route path="/followers" element={<Profile />} />
           <Route path="/pages" element={<Pages />} />
           <Route path="/saved_posts" element={<SavedPosts />} />
-          <Route path="/myprofile" element={<Profile />} />
+          <Route path="/myprofile" element={<UserProfile />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/profile/:user_id" element={<Profile />} />
           <Route path="/login" element={<LogIn />} />
