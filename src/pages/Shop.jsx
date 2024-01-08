@@ -24,9 +24,6 @@ const Shop = () => {
   if (!products && !isError.error) {
     return <Loading />
   }
-  if (isError.error) {
-    return <h1>{isError.message}</h1>
-  }
   return (
     <>
       <Helmet>
@@ -54,10 +51,16 @@ const Shop = () => {
           },
         }}
       >
-        {products.map((product) => {
-          const { id } = product
-          return <Product {...product} key={id} />
-        })}
+        {isError.error ? (
+          <h6>{isError.message}</h6>
+        ) : (
+          <>
+            {products.map((product) => {
+              const { id } = product
+              return <Product {...product} key={id} />
+            })}
+          </>
+        )}
       </Box>
     </>
   )

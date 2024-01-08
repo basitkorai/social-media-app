@@ -1,4 +1,3 @@
-import React from 'react'
 import FollowerProfiles from './FollowerProfile'
 import { motion } from 'framer-motion'
 import { Box, Button, ButtonBase, IconButton, Typography } from '@mui/material'
@@ -68,7 +67,6 @@ const UserProfile = ({ name, avatar, isFollowing, admin }) => {
         )}
         <Box
           sx={{
-            // marginTop: '2rem',
             display: 'grid',
             placeContent: min600 ? 'center' : 'unset',
             gap: '0.5rem',
