@@ -7,8 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAppContext } from '../context/context'
 
 const UserProfile = ({ name, avatar, isFollowing, admin }) => {
-  const { setLightBoxImage, toggleLightbox, min600, updateSelectedTab } =
-    useAppContext()
+  const { setLightBoxImage, toggleLightbox, min600 } = useAppContext()
   const navigate = useNavigate()
 
   const handleGoBack = () => {
@@ -69,13 +68,15 @@ const UserProfile = ({ name, avatar, isFollowing, admin }) => {
         )}
         <Box
           sx={{
-            marginTop: '2rem',
+            // marginTop: '2rem',
             display: 'grid',
-            placeContent: 'center',
-            gap: '1rem',
+            placeContent: min600 ? 'center' : 'unset',
+            gap: '0.5rem',
           }}
         >
-          <Typography variant="h5">Followers</Typography>
+          <Typography sx={{ marginBlock: '2rem' }} variant="h5">
+            Followers
+          </Typography>
           <FollowerProfiles />
         </Box>
       </Box>
