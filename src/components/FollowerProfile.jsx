@@ -28,7 +28,6 @@ const FollowerProfiles = () => {
                 display: 'flex',
                 justifyContent: 'flex-start',
                 gap: '1rem',
-                marginBottom: '0.3rem',
                 width: {
                   xs: '100%',
                   md: 400,

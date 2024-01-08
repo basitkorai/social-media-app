@@ -9,6 +9,10 @@ import JohnSmilga from '../assets/images/pages/john-smilga.png'
 
 const pages = [
   {
+    page_name: "John Smilga's Coding Bootcamp",
+    avatar: JohnSmilga,
+  },
+  {
     page_name: 'Learn Freelancing with Hisham Sarwar',
     avatar: HishamSarwar,
   },
@@ -35,10 +39,6 @@ const pages = [
   {
     page_name: 'Google Developers',
     avatar: GoogleLogo,
-  },
-  {
-    page_name: "John Smilga's Coding Bootcamp",
-    avatar: JohnSmilga,
   },
 ]
 
