@@ -20,7 +20,6 @@ const SavedPosts = () => {
           height: arrayOfSavedPosts.length < 1 ? '90vh' : 'auto',
           width: '100%',
           display: 'grid',
-          placeContent: 'center',
         }}
       >
         {arrayOfSavedPosts.length >= 1 ? (
