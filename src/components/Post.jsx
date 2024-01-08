@@ -16,7 +16,7 @@ import { useAppContext } from '../context/context'
 import { useNavigate } from 'react-router-dom'
 
 const likeSound = new Audio(sound)
-const Post = ({ post }) => {
+const Post = ({ post, autoMargin }) => {
   const {
     toggleLightbox,
     setLightBoxImage,
