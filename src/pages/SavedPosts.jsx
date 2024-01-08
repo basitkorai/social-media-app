@@ -17,7 +17,7 @@ const SavedPosts = () => {
         flex={4}
         sx={{
           paddingTop: '1rem',
-          height: '90vh',
+          height: arrayOfSavedPosts.length < 1 ? '90vh' : 'auto',
           width: '100%',
           display: 'grid',
           placeContent: 'center',
