@@ -9,7 +9,6 @@ const FollowerProfiles = () => {
   const { isSelectedUser, selectUser, isMode } = useAppContext()
   const { user_id } = isSelectedUser
   const { palette } = useTheme()
-  // console.log(palette)
   const handleGoToProfile = (user_id) => {
     selectUser(user_id, navigate)
   }
