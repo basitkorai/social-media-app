@@ -12,19 +12,17 @@ import {
 } from '@mui/material'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
-import { Article, Logout, Notifications } from '@mui/icons-material'
+import { Notifications } from '@mui/icons-material'
 import SearchIcon from '@mui/icons-material/Search'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
-import { Bookmark } from '@mui/icons-material'
 import { Settings } from '@mui/icons-material'
-import AccountBoxIcon from '@mui/icons-material/AccountBox'
 import { useState } from 'react'
 import Logo from './Logo'
 import { useAppContext } from '../context/context'
 import { useNavigate } from 'react-router-dom'
+import { desktopMenuItems, mobileMenuItems } from '../data/navlinks'
 
-const menuIconStyles = { marginRight: '0.5rem' }
 const StyledToolbar = styled(Toolbar)({
   display: 'flex',
   justifyContent: 'space-between',
@@ -69,7 +67,7 @@ const Navbar = () => {
     isMode,
     updateTheme,
     min850,
-    selectUser,
+    min900,
     isUserLoggedIn,
     setIsUserLoggedIn,
   } = useAppContext()
@@ -78,24 +76,18 @@ const Navbar = () => {
 
   const iconColor = { color: palette.text.primary }
 
-  const handleProfileClick = () => {
-    selectUser('2019', navigate, '/myprofile')
-    handleClose()
+  const handleMenuItemClick = (route, logout) => {
+    if (logout) {
+      setIsUserLoggedIn(false)
+      navigate('/login')
+      setIsOpen(false)
+    } else {
+      navigate(`/${route}`)
+      setIsOpen(false)
+    }
   }
+
   const handleClose = () => {
-    setIsOpen(false)
-  }
-  const handleLogOut = () => {
-    setIsUserLoggedIn(false)
-    navigate('/login')
-    setIsOpen(false)
-  }
-  const handlePagesClick = () => {
-    navigate('/pages')
-    setIsOpen(false)
-  }
-  const handleSavedPostsClick = () => {
-    navigate('/saved_posts')
     setIsOpen(false)
   }
 
@@ -188,26 +180,43 @@ const Navbar = () => {
           horizontal: 'right',
         }}
       >
-        <MenuItem onClick={handleProfileClick}>
-          <AccountBoxIcon sx={menuIconStyles} />
-          Profile
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Settings sx={menuIconStyles} />
-          Settings
-        </MenuItem>
-        <MenuItem onClick={handlePagesClick}>
-          <Article sx={menuIconStyles} />
-          Pages
-        </MenuItem>
-        <MenuItem onClick={handleSavedPostsClick}>
-          <Bookmark sx={menuIconStyles} />
-          Saved posts
-        </MenuItem>
-        <MenuItem onClick={handleLogOut}>
-          <Logout sx={menuIconStyles} />
-          Logout
-        </MenuItem>
+        {min900
+          ? desktopMenuItems.map((item, index) => {
+              const { name, icon, route } = item
+              return (
+                <MenuItem
+                  key={index}
+                  onClick={() => {
+                    if (route) {
+                      handleMenuItemClick(route, false)
+                    } else {
+                      handleClose()
+                    }
+                  }}
+                >
+                  {icon}
+                  {name}
+                </MenuItem>
+              )
+            })
+          : mobileMenuItems.map((item, index) => {
+              const { name, icon, route } = item
+              return (
+                <MenuItem
+                  key={index}
+                  onClick={() => {
+                    if (route) {
+                      handleMenuItemClick(route, name === 'Logout')
+                    } else {
+                      handleClose()
+                    }
+                  }}
+                >
+                  {icon}
+                  {name}
+                </MenuItem>
+              )
+            })}
       </Menu>
     </AppBar>
   )
