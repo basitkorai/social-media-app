@@ -56,7 +56,7 @@ export default function BottomNavigation() {
               navigateTo('/')
             }
           }}
-          label={pathname === '/' ? 'Home' : 'Go to Home'}
+          label={pathname === '/' ? 'Home' : 'Go Home'}
           icon={<HomeIcon />}
         />
         <BottomNavigationAction
@@ -65,7 +65,7 @@ export default function BottomNavigation() {
               goToMyProfile()
             }
           }}
-          label="Me"
+          label="You"
           icon={<PersonIcon />}
         />
       </BottomNavigationWrapper>
