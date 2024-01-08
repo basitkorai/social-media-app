@@ -6,8 +6,7 @@ import {
   ListItemIcon,
 } from '@mui/material'
 import { useTheme } from '@mui/material'
-
-import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
+import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import navlinks from '../data/navlinks'
 import { useAppContext } from '../context/context'
 
