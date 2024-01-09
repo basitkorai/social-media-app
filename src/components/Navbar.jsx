@@ -72,7 +72,11 @@ const Navbar = () => {
       <StyledToolbar>
         <Icons>
           <IconButton onClick={() => setIsOpen(true)}>
-            <HiMenuAlt4 />
+            {min900 ? (
+              <Avatar src="https://images.pexels.com/photos/1326946/pexels-photo-1326946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            ) : (
+              <HiMenuAlt4 />
+            )}
           </IconButton>
         </Icons>
         <Logo dimensions={'34'} />
@@ -82,16 +86,6 @@ const Navbar = () => {
               <IconButton onClick={() => toggleSearchModal()}>
                 <SearchIcon />
               </IconButton>
-              <Avatar
-                onClick={() => setIsOpen(true)}
-                sx={{
-                  width: 30,
-                  height: 30,
-                  cursor: 'pointer',
-                  display: { xs: 'none', sm: 'inline-block' },
-                }}
-                src="https://images.pexels.com/photos/1326946/pexels-photo-1326946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              />
             </>
           ) : (
             <IconButton>
@@ -152,7 +146,6 @@ const Navbar = () => {
                 </MenuItem>
               )
             })}
-
         <MenuItem onClick={() => updateTheme()}>
           {isMode === 'dark' ? (
             <DarkModeIcon sx={{ ...menuIconStyles }} />
