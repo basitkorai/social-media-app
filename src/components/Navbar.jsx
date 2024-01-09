@@ -28,18 +28,12 @@ const StyledToolbar = styled(Toolbar)({
 
 const Icons = styled(Box)(({ theme }) => ({
   padding: '0 0.625rem',
-  display: 'none',
-  [theme.breakpoints.up('sm')]: { display: 'flex' },
-  gap: '1.25rem',
+  display: 'flex',
+  gap: '0.5rem',
+  marginLeft: 'auto',
+  justifyContent: 'center',
   alignItems: 'center',
   borderRadius: theme.shape.borderRadius,
-}))
-
-const UserBox = styled(Box)(({ theme }) => ({
-  display: 'flex',
-  gap: '0.625rem',
-  [theme.breakpoints.up('sm')]: { display: 'none' },
-  alignItems: 'center',
 }))
 
 const Navbar = () => {
@@ -76,38 +70,21 @@ const Navbar = () => {
     <AppBar sx={{ color: 'white', position: 'sticky', top: '0' }}>
       <StyledToolbar>
         <Logo dimensions={'34'} />
-        <Box
-          sx={{
-            marginLeft: 'auto',
-            display: 'flex',
-            justifyContent: 'center',
-            gap: { sm: 0, md: '0.625rem' },
-          }}
-        >
+        <Icons>
           <IconButton onClick={() => toggleSearchModal()}>
             <SearchIcon />
           </IconButton>
           <IconButton sx={iconColor} onClick={() => updateTheme()}>
             {isMode === 'dark' ? <DarkModeIcon /> : <LightModeIcon />}
           </IconButton>
-        </Box>
-        <Icons>
-          <Badge badgeContent={3} color="error">
-            <IconButton>
-              <Notifications />
-            </IconButton>
-          </Badge>
-          <Avatar
-            onClick={() => setIsOpen(true)}
-            sx={{ width: 30, height: 30, cursor: 'pointer' }}
-            src="https://images.pexels.com/photos/1326946/pexels-photo-1326946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          />
-        </Icons>
-        <UserBox>
           {isUserLoggedIn ? (
             <Avatar
               onClick={() => setIsOpen(true)}
-              sx={{ width: 30, height: 30, cursor: 'pointer' }}
+              sx={{
+                width: 30,
+                height: 30,
+                cursor: 'pointer',
+              }}
               src="https://images.pexels.com/photos/1326946/pexels-photo-1326946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             />
           ) : (
@@ -115,7 +92,7 @@ const Navbar = () => {
               <Settings />
             </IconButton>
           )}
-        </UserBox>
+        </Icons>
       </StyledToolbar>
       <Menu
         id="demo-positioned-menu"
