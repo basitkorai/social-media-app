@@ -1,10 +1,19 @@
 import { ListItem, ListItemButton, ListItemIcon, useTheme } from '@mui/material'
 import { useAppContext } from '../context/context'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 
 const NavItem = ({ link, action }) => {
   const { isUserLoggedIn } = useAppContext()
   const { palette } = useTheme()
+  const { pathname } = useLocation()
+
+  const currentIcon = () => {
+    if (pathname === link.link) {
+      return link.activeIcon
+    } else {
+      return link.icon
+    }
+  }
 
   if (action) {
     return (
@@ -23,7 +32,7 @@ const NavItem = ({ link, action }) => {
           sx={{ borderRadius: '1rem', overflow: 'hidden' }}
         >
           <ListItemButton>
-            <ListItemIcon>{link.icon}</ListItemIcon>
+            <ListItemIcon>{currentIcon()}</ListItemIcon>
             {link.route}
           </ListItemButton>
         </ListItem>
@@ -46,7 +55,7 @@ const NavItem = ({ link, action }) => {
         sx={{ borderRadius: '1rem', overflow: 'hidden' }}
       >
         <ListItemButton>
-          <ListItemIcon>{link.icon}</ListItemIcon>
+          <ListItemIcon>{currentIcon()}</ListItemIcon>
           {link.route}
         </ListItemButton>
       </ListItem>
