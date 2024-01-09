@@ -33,42 +33,47 @@ const Shop = () => {
           content="Social Rocket Marketplace - a place to get what you are looking for."
         />
       </Helmet>
-      <Box
-        flex={7}
-        sx={{
-          fontSize: '7rem',
-          fontFamily: 'Inter, sans-serif',
-          display: 'grid',
-          justifyItems: 'center',
-          paddingTop: '1rem',
-          gap: '1rem',
-          gridTemplateColumns: {
-            xs: '1fr',
-            mb: '1fr 1fr',
-            sm: '1fr 1fr 1fr',
-            lg: '1fr 1fr 1fr 1fr',
-            xl: '1fr 1fr 1fr 1fr 1fr',
-          },
-        }}
-      >
+      <Box>
         <Typography
           variant="h5"
-          fontWeight={'bold'}
-          textAlign={'center'}
+          sx={{
+            fontWeight: 'bold',
+            marginTop: '1rem',
+            textAlign: 'center',
+          }}
           component={'h1'}
         >
           Shop
         </Typography>
-        {isError.error ? (
-          <h6>{isError.message}</h6>
-        ) : (
-          <>
-            {products.map((product) => {
-              const { id } = product
-              return <Product {...product} key={id} />
-            })}
-          </>
-        )}
+        <Box
+          flex={7}
+          sx={{
+            fontSize: '7rem',
+            fontFamily: 'Inter, sans-serif',
+            display: 'grid',
+            justifyItems: 'center',
+            paddingTop: '1rem',
+            gap: '1rem',
+            gridTemplateColumns: {
+              xs: '1fr',
+              mb: '1fr 1fr',
+              sm: '1fr 1fr 1fr',
+              lg: '1fr 1fr 1fr 1fr',
+              xl: '1fr 1fr 1fr 1fr 1fr',
+            },
+          }}
+        >
+          {isError.error ? (
+            <h6>{isError.message}</h6>
+          ) : (
+            <>
+              {products.map((product) => {
+                const { id } = product
+                return <Product {...product} key={id} />
+              })}
+            </>
+          )}
+        </Box>
       </Box>
     </>
   )
