@@ -3,11 +3,9 @@ import {
   Avatar,
   Badge,
   Box,
-  InputBase,
   Toolbar,
   styled,
   IconButton,
-  ClickAwayListener,
   useTheme,
 } from '@mui/material'
 import Menu from '@mui/material/Menu'
@@ -28,21 +26,6 @@ const StyledToolbar = styled(Toolbar)({
   justifyContent: 'space-between',
 })
 
-const Search = styled(Box)(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
-  backgroundColor:
-    theme.palette.mode === 'dark'
-      ? theme.palette.primary.main
-      : theme.palette.primary.light,
-  paddingInline: '1rem',
-  width: '80%',
-  borderRadius: '20px',
-  '&:enabled': {
-    outline: `2px double ${theme.palette.warning.light}`,
-  },
-}))
-
 const Icons = styled(Box)(({ theme }) => ({
   padding: '0 0.625rem',
   display: 'none',
@@ -61,15 +44,13 @@ const UserBox = styled(Box)(({ theme }) => ({
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const [isSearchOpen, setIsSearchOpen] = useState(false)
-  const [isSearchValue, setIsSearchValue] = useState('')
   const {
     isMode,
     updateTheme,
-    min850,
     min900,
     isUserLoggedIn,
     setIsUserLoggedIn,
+    toggleSearchModal,
   } = useAppContext()
   const { palette } = useTheme()
   const navigate = useNavigate()
@@ -103,41 +84,12 @@ const Navbar = () => {
             gap: { sm: 0, md: '0.625rem' },
           }}
         >
-          {isSearchOpen ? null : (
-            <IconButton sx={iconColor} onClick={() => updateTheme()}>
-              {isMode === 'dark' ? <DarkModeIcon /> : <LightModeIcon />}
-            </IconButton>
-          )}
-          {isSearchOpen || min850 ? (
-            <ClickAwayListener onClickAway={() => setIsSearchOpen(false)}>
-              <Search>
-                <InputBase
-                  value={isSearchValue}
-                  onChange={(e) => {
-                    setIsSearchValue(e.target.value)
-                  }}
-                  color="primary"
-                  placeholder="Search"
-                  variant="outlined"
-                  sx={{
-                    width: '100%',
-                    color: '#000',
-                    '& input::placeholder': {
-                      color: 'black',
-                      padding: 'rem',
-                    },
-                  }}
-                />
-              </Search>
-            </ClickAwayListener>
-          ) : (
-            <IconButton
-              onClick={() => setIsSearchOpen(true)}
-              sx={{ marginLeft: 'auto', marginRight: 1, ...iconColor }}
-            >
-              <SearchIcon />
-            </IconButton>
-          )}
+          <IconButton onClick={() => toggleSearchModal()}>
+            <SearchIcon />
+          </IconButton>
+          <IconButton sx={iconColor} onClick={() => updateTheme()}>
+            {isMode === 'dark' ? <DarkModeIcon /> : <LightModeIcon />}
+          </IconButton>
         </Box>
         <Icons>
           <Badge badgeContent={3} color="error">

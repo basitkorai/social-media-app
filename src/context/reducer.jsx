@@ -25,6 +25,12 @@ const reducer = (state, action) => {
         isLightboxOpen: action.payload,
       }
     }
+    case 'TOGGLE_SEARCH_MODAL': {
+      return {
+        ...state,
+        isSearchModalOpen: !state.isSearchModalOpen,
+      }
+    }
     case 'UPDATE_TAB': {
       return {
         ...state,

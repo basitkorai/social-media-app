@@ -14,6 +14,7 @@ let initialState = {
   isSelectedUser: users[users.length - 1],
   isSelectedTab: 1,
   isLightboxOpen: false,
+  isSearchModalOpen: false,
   isLightboxImage: null,
   isUserLoggedIn: localState?.isUserLoggedIn || false,
   products: null,
@@ -47,6 +48,11 @@ const ContextProvider = ({ children }) => {
     dispatch({
       type: 'TOGGLE_LIGHTBOX',
       payload: lightboxState,
+    })
+  }
+  const toggleSearchModal = () => {
+    dispatch({
+      type: 'TOGGLE_SEARCH_MODAL',
     })
   }
   const updateSelectedTab = (tab) => {
@@ -102,6 +108,7 @@ const ContextProvider = ({ children }) => {
     selectUser,
     setLightBoxImage,
     toggleLightbox,
+    toggleSearchModal,
     updateSelectedTab,
     setIsUserLoggedIn,
     setProducts,
