@@ -10,7 +10,7 @@ import {
 } from '@mui/material'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
-import { Notifications } from '@mui/icons-material'
+import { NoEncryption, Notifications } from '@mui/icons-material'
 import SearchIcon from '@mui/icons-material/Search'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
@@ -84,6 +84,7 @@ const Navbar = () => {
                 width: 30,
                 height: 30,
                 cursor: 'pointer',
+                display: { xs: 'none', sm: 'inline-block' },
               }}
               src="https://images.pexels.com/photos/1326946/pexels-photo-1326946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             />
