@@ -27,7 +27,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home md={min850} />} />
           <Route path="/shop" element={<Shop />} />
-          <Route path="/followers" element={<Profile />} />
+          <Route path="/followers" element={<UserProfile />} />
           <Route path="/pages" element={<Pages />} />
           <Route path="/saved_posts" element={<SavedPosts />} />
           <Route path="/myprofile" element={<UserProfile />} />
