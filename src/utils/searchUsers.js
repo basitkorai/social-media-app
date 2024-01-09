@@ -21,7 +21,6 @@ const searchUsersByName = (searchString, users, setSearchResult) => {
     }
 
     setSearchResult(results)
-    console.log(results)
 };
 
 export default searchUsersByName
