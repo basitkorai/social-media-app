@@ -33,7 +33,11 @@ const Shop = () => {
           content="Social Rocket Marketplace - a place to get what you are looking for."
         />
       </Helmet>
-      <Box>
+      <Box
+        sx={{
+          marginInline: 'auto',
+        }}
+      >
         <Typography
           variant="h5"
           sx={{
