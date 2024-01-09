@@ -1,77 +1,22 @@
-import {
-  Box,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-} from '@mui/material'
-import { useTheme } from '@mui/material'
-import { NavLink, useLocation, useNavigate } from 'react-router-dom'
+import { Box, List } from '@mui/material'
 import navlinks from '../data/navlinks'
 import { useAppContext } from '../context/context'
+import NavItem from './NavItem'
 
 const SidebarList = () => {
-  const { selectUser } = useAppContext()
-  const { palette } = useTheme()
-  const { pathname } = useLocation()
-  const isLoggedOut = pathname === '/login'
-  const navigate = useNavigate()
+  const { setIsUserLoggedIn } = useAppContext()
 
-  const handleClickFollowers = () => {
-    selectUser('2019', navigate, '/myprofile')
+  const handleLogOut = () => {
+    setIsUserLoggedIn(false)
   }
-
   return (
     <Box flex={1} p={2}>
       <List>
         {navlinks.map((link, index) => {
-          if (link.route === '/followers') {
-            return (
-              <NavLink
-                onClick={handleClickFollowers}
-                key={index}
-                style={{
-                  color: palette.text.primary,
-                  textDecoration: 'none',
-                  fontFamily: 'Inter, sans-serif',
-                  padding: '0.5rem',
-                }}
-                to={isLoggedOut ? '#' : link.link}
-              >
-                <ListItem
-                  disablePadding
-                  sx={{ borderRadius: '1rem', overflow: 'hidden' }}
-                >
-                  <ListItemButton>
-                    <ListItemIcon>{link.icon}</ListItemIcon>
-                    {link.route}
-                  </ListItemButton>
-                </ListItem>
-              </NavLink>
-            )
+          if (link.route === 'Logout') {
+            return <NavItem key={index} link={link} action={handleLogOut} />
           } else {
-            return (
-              <NavLink
-                key={index}
-                style={{
-                  color: palette.text.primary,
-                  textDecoration: 'none',
-                  fontFamily: 'Inter, sans-serif',
-                  padding: '0.5rem',
-                }}
-                to={isLoggedOut ? '#' : link.link}
-              >
-                <ListItem
-                  disablePadding
-                  sx={{ borderRadius: '1rem', overflow: 'hidden' }}
-                >
-                  <ListItemButton>
-                    <ListItemIcon>{link.icon}</ListItemIcon>
-                    {link.route}
-                  </ListItemButton>
-                </ListItem>
-              </NavLink>
-            )
+            return <NavItem key={index} link={link} />
           }
         })}
       </List>
