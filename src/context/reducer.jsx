@@ -2,6 +2,8 @@ const reducer = (state, action) => {
   const previousState = JSON.parse(localStorage.getItem('state'))
   switch (action.type) {
     case 'UPDATE_THEME': {
+      const body = document.getElementById('body')
+      body.style.background = action.payload === 'dark' ? '#121212' : '#fff'
       return {
         ...state,
         isMode: action.payload,

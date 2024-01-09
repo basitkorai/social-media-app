@@ -6,6 +6,10 @@ import posts from '../data/Posts'
 const AppContext = createContext()
 
 const isThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+
+document.getElementById('body').style.background = isThemeDark
+  ? '#121212'
+  : '#fff'
 let systemTheme = isThemeDark ? 'dark' : 'light'
 
 const localState = JSON.parse(localStorage.getItem('state'))
