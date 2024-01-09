@@ -1,14 +1,14 @@
-import React from 'react'
 import Navbar from '../components/Navbar'
-import { Box, Stack, useMediaQuery } from '@mui/material'
+import { Box, Stack } from '@mui/material'
 import Sidebar from '../components/Sidebar'
 import BottomNavigation from '../components/BottomNav'
 import Lightbox from '../components/Lightbox'
 import { useAppContext } from '../context/context'
 import { Outlet } from 'react-router-dom'
+import SearchDialog from '../components/SearchDialog'
 
 const Layout = () => {
-  const { isLightboxOpen, min900 } = useAppContext()
+  const { isLightboxOpen, isSearchModalOpen, min900 } = useAppContext()
   return (
     <>
       <Box
@@ -25,6 +25,7 @@ const Layout = () => {
           <Outlet />
         </Stack>
         {isLightboxOpen && <Lightbox />}
+        {isSearchModalOpen && <SearchDialog />}
       </Box>
     </>
   )

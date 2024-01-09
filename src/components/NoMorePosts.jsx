@@ -1,4 +1,4 @@
-import { Box, Icon, Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied'
 import { useAppContext } from '../context/context'
 
