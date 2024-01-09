@@ -24,10 +24,15 @@ import {
   menuIconStyles,
 } from '../data/navlinks'
 
-const StyledToolbar = styled(Toolbar)({
+const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   display: 'flex',
   justifyContent: 'space-between',
-})
+  backgroundColor: theme.palette.mode === 'dark' ? 'auto' : '#ff416c',
+  background:
+    theme.palette.mode === 'dark'
+      ? 'auto'
+      : 'linear-gradient(to right, #ff416c, #ff4b2b)',
+}))
 
 const Icons = styled(Box)(({ theme }) => ({
   padding: '0rem',
@@ -68,7 +73,13 @@ const Navbar = () => {
   }
 
   return (
-    <AppBar sx={{ color: 'white', position: 'sticky', top: '0' }}>
+    <AppBar
+      sx={{
+        color: 'white',
+        position: 'sticky',
+        top: '0',
+      }}
+    >
       <StyledToolbar>
         <Icons>
           <IconButton onClick={() => setIsOpen(true)}>
