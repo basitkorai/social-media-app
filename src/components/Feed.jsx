@@ -15,7 +15,7 @@ const Feed = () => {
         variant="h5"
         fontWeight={'bold'}
         sx={{
-          padding: '1rem',
+          padding: '0 1rem 1rem 1rem',
           background: '-webkit-linear-gradient(#ff416c, #ff4b2b)',
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
