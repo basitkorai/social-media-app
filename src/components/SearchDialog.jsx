@@ -50,7 +50,10 @@ const SearchDialog = () => {
           height: '70vh',
           position: 'relative',
           overflowY: 'auto',
-          top: 100,
+          top: {
+            xs: 10,
+            sm: 100,
+          },
         }}
       >
         <Box
