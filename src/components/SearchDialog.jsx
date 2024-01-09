@@ -22,6 +22,7 @@ const SearchDialog = () => {
 
   const handleGoToProfile = (user_id) => {
     selectUser(user_id, navigate)
+    toggleSearchModal()
   }
 
   const handleClose = () => {
