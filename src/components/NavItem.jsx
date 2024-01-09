@@ -14,7 +14,9 @@ const NavItem = ({ link, action }) => {
       return link.icon
     }
   }
-
+  if (link.route === 'Logout' && !isUserLoggedIn) {
+    return null
+  }
   if (action) {
     return (
       <NavLink
