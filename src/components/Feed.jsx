@@ -15,10 +15,13 @@ const Feed = () => {
         variant="h5"
         fontWeight={'bold'}
         sx={{
-          padding: '0 1rem 1rem 1rem',
+          padding: '0 0rem 1rem 0.5rem',
+          marginInline: 'auto',
           background: '-webkit-linear-gradient(#ff416c, #ff4b2b)',
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
+          maxWidth: 490,
+          width: '95%',
         }}
         component={'h1'}
       >
