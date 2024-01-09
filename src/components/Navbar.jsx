@@ -82,13 +82,17 @@ const Navbar = () => {
     >
       <StyledToolbar>
         <Icons>
-          <IconButton onClick={() => setIsOpen(true)}>
-            {min900 ? (
-              <Avatar src="https://images.pexels.com/photos/1326946/pexels-photo-1326946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-            ) : (
+          {min900 ? (
+            <Avatar
+              onClick={() => setIsOpen(true)}
+              src="https://images.pexels.com/photos/1326946/pexels-photo-1326946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              sx={{ cursor: 'pointer' }}
+            />
+          ) : (
+            <IconButton onClick={() => setIsOpen(true)}>
               <HiMenuAlt4 />
-            )}
-          </IconButton>
+            </IconButton>
+          )}
         </Icons>
         <Logo dimensions={'34'} />
         <Icons>
