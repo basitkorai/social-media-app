@@ -1,7 +1,6 @@
 import {
   AppBar,
   Avatar,
-  Badge,
   Box,
   Toolbar,
   styled,
@@ -10,8 +9,8 @@ import {
 } from '@mui/material'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
-import { NoEncryption, Notifications } from '@mui/icons-material'
 import SearchIcon from '@mui/icons-material/Search'
+import { HiMenuAlt4 } from 'react-icons/hi'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
 import { Settings } from '@mui/icons-material'
@@ -19,7 +18,11 @@ import { useState } from 'react'
 import Logo from './Logo'
 import { useAppContext } from '../context/context'
 import { useNavigate } from 'react-router-dom'
-import { desktopMenuItems, mobileMenuItems } from '../data/navlinks'
+import {
+  desktopMenuItems,
+  mobileMenuItems,
+  menuIconStyles,
+} from '../data/navlinks'
 
 const StyledToolbar = styled(Toolbar)({
   display: 'flex',
@@ -27,10 +30,8 @@ const StyledToolbar = styled(Toolbar)({
 })
 
 const Icons = styled(Box)(({ theme }) => ({
-  padding: '0 0.625rem',
+  padding: '0rem',
   display: 'flex',
-  gap: '0.5rem',
-  marginLeft: 'auto',
   justifyContent: 'center',
   alignItems: 'center',
   borderRadius: theme.shape.borderRadius,
@@ -69,25 +70,29 @@ const Navbar = () => {
   return (
     <AppBar sx={{ color: 'white', position: 'sticky', top: '0' }}>
       <StyledToolbar>
+        <Icons>
+          <IconButton onClick={() => setIsOpen(true)}>
+            <HiMenuAlt4 />
+          </IconButton>
+        </Icons>
         <Logo dimensions={'34'} />
         <Icons>
-          <IconButton onClick={() => toggleSearchModal()}>
-            <SearchIcon />
-          </IconButton>
-          <IconButton sx={iconColor} onClick={() => updateTheme()}>
-            {isMode === 'dark' ? <DarkModeIcon /> : <LightModeIcon />}
-          </IconButton>
           {isUserLoggedIn ? (
-            <Avatar
-              onClick={() => setIsOpen(true)}
-              sx={{
-                width: 30,
-                height: 30,
-                cursor: 'pointer',
-                display: { xs: 'none', sm: 'inline-block' },
-              }}
-              src="https://images.pexels.com/photos/1326946/pexels-photo-1326946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            />
+            <>
+              <IconButton onClick={() => toggleSearchModal()}>
+                <SearchIcon />
+              </IconButton>
+              <Avatar
+                onClick={() => setIsOpen(true)}
+                sx={{
+                  width: 30,
+                  height: 30,
+                  cursor: 'pointer',
+                  display: { xs: 'none', sm: 'inline-block' },
+                }}
+                src="https://images.pexels.com/photos/1326946/pexels-photo-1326946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              />
+            </>
           ) : (
             <IconButton>
               <Settings />
@@ -103,11 +108,11 @@ const Navbar = () => {
         onClose={handleClose}
         anchorOrigin={{
           vertical: 'top',
-          horizontal: 'right',
+          horizontal: 'left',
         }}
         transformOrigin={{
           vertical: 'top',
-          horizontal: 'right',
+          horizontal: 'left',
         }}
       >
         {min900
@@ -147,6 +152,15 @@ const Navbar = () => {
                 </MenuItem>
               )
             })}
+
+        <MenuItem onClick={() => updateTheme()}>
+          {isMode === 'dark' ? (
+            <DarkModeIcon sx={{ ...menuIconStyles }} />
+          ) : (
+            <LightModeIcon sx={{ ...menuIconStyles }} />
+          )}
+          {isMode === 'dark' ? 'Dark mode' : 'Light mode'}
+        </MenuItem>
       </Menu>
     </AppBar>
   )

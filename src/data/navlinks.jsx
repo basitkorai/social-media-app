@@ -70,6 +70,6 @@ const mobileMenuItems = [
   },
 ]
 
-export { desktopMenuItems, mobileMenuItems }
+export { desktopMenuItems, mobileMenuItems, menuIconStyles }
 
 export default navlinks
