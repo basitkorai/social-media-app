@@ -12,6 +12,7 @@ import searchUsersByName from '../utils/searchUsers'
 import users from '../data/users'
 import { useNavigate } from 'react-router-dom'
 import { useTheme } from '@emotion/react'
+import Emoji from 'react-emojis'
 
 const SearchDialog = () => {
   const [searchString, setSearchString] = useState('')
@@ -122,9 +123,12 @@ const SearchDialog = () => {
               })}
             </>
           ) : (
-            <Typography variant="h6" component="h1">
-              No user found
-            </Typography>
+            <>
+              <Emoji emoji="pleading-face" size={50} />
+              <Typography variant="h6" component="h1">
+                No user found, try typing something.
+              </Typography>
+            </>
           )}
         </Box>
       </Box>
