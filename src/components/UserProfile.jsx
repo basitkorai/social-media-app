@@ -6,7 +6,8 @@ import { useNavigate } from 'react-router-dom'
 import { useAppContext } from '../context/context'
 
 const UserProfile = ({ name, avatar, isFollowing, admin }) => {
-  const { setLightBoxImage, toggleLightbox, min600 } = useAppContext()
+  const { setLightBoxImage, toggleLightbox, min600, updateSelectedTab } =
+    useAppContext()
   const navigate = useNavigate()
 
   const handleGoBack = () => {
