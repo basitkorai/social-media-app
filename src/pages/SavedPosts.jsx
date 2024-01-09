@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async'
-import { Box as SavedPostsBox } from '@mui/material'
+import { Box as SavedPostsBox, Typography } from '@mui/material'
 import Post from '../components/Post'
 import { useAppContext } from '../context/context'
 import NoMorePosts from '../components/NoMorePosts'
@@ -22,6 +22,15 @@ const SavedPosts = () => {
           display: 'grid',
         }}
       >
+        <Typography
+          variant="h5"
+          fontWeight={'bold'}
+          textAlign={'center'}
+          marginBottom={'1rem'}
+          component={'h1'}
+        >
+          Saved posts
+        </Typography>
         {arrayOfSavedPosts.length >= 1 ? (
           <>
             {arrayOfSavedPosts.map((post, index) => {

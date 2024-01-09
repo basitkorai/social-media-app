@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useAppContext } from '../context/context'
 import axios from 'axios'
 import Product from '../components/Product'
-import { Box } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import { Helmet } from 'react-helmet-async'
 import Loading from '../components/Loading'
 
@@ -51,6 +51,14 @@ const Shop = () => {
           },
         }}
       >
+        <Typography
+          variant="h5"
+          fontWeight={'bold'}
+          textAlign={'center'}
+          component={'h1'}
+        >
+          Shop
+        </Typography>
         {isError.error ? (
           <h6>{isError.message}</h6>
         ) : (
