@@ -3,16 +3,17 @@ import Box from '@mui/material/Box'
 import BottomNavigationWrapper from '@mui/material/BottomNavigation'
 import BottomNavigationAction from '@mui/material/BottomNavigationAction'
 import HomeIcon from '@mui/icons-material/Home'
-import PersonIcon from '@mui/icons-material/Person'
 import StoreIcon from '@mui/icons-material/Store'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useAppContext } from '../context/context'
+import { Avatar, useTheme } from '@mui/material'
 
 export default function BottomNavigation() {
   const { selectUser, isSelectedTab, updateSelectedTab, isUserLoggedIn } =
     useAppContext()
   const navigate = useNavigate()
   const { pathname } = useLocation()
+  const { palette } = useTheme()
 
   useEffect(() => {
     const selectedTab = pathname.includes('/myprofile')
@@ -66,7 +67,20 @@ export default function BottomNavigation() {
             }
           }}
           label="You"
-          icon={<PersonIcon />}
+          icon={
+            <Avatar
+              onClick={() => setIsOpen(true)}
+              sx={{
+                width: 25,
+                height: 25,
+                cursor: 'pointer',
+                outline: `${isSelectedTab === 2 ? '2px' : '0px'} solid ${
+                  palette.primary.main
+                }`,
+              }}
+              src="https://images.pexels.com/photos/1326946/pexels-photo-1326946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            />
+          }
         />
       </BottomNavigationWrapper>
     </Box>
