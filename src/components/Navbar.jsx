@@ -24,14 +24,12 @@ import {
   menuIconStyles,
 } from '../data/navlinks'
 
-const StyledToolbar = styled(Toolbar)(({ theme }) => ({
+const CustomNavbar = styled(Toolbar)(({ theme }) => ({
   display: 'flex',
   justifyContent: 'space-between',
   backgroundColor: theme.palette.mode === 'dark' ? 'auto' : '#ff416c',
   background:
-    theme.palette.mode === 'dark'
-      ? 'auto'
-      : 'linear-gradient(to right, #ff416c, #ff4b2b)',
+    theme.palette.mode === 'dark' ? 'auto' : theme.palette.navbarGradient,
 }))
 
 const Icons = styled(Box)(({ theme }) => ({
@@ -46,22 +44,26 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const {
     isMode,
-    updateTheme,
+    updateMode,
     min900,
     isUserLoggedIn,
     setIsUserLoggedIn,
     toggleSearchModal,
+    toggleSettingsModal,
   } = useAppContext()
   const { palette } = useTheme()
   const navigate = useNavigate()
 
   const iconColor = { color: palette.text.primary }
 
-  const handleMenuItemClick = (route, logout) => {
+  const handleMenuItemClick = (route, logout, settings) => {
     if (logout) {
       setIsUserLoggedIn(false)
       navigate('/login')
       setIsOpen(false)
+    } else if (settings) {
+      toggleSettingsModal()
+      handleClose()
     } else {
       navigate(`/${route}`)
       setIsOpen(false)
@@ -80,7 +82,7 @@ const Navbar = () => {
         top: '0',
       }}
     >
-      <StyledToolbar>
+      <CustomNavbar>
         <Icons>
           {min900 ? (
             <Avatar
@@ -108,7 +110,7 @@ const Navbar = () => {
             </IconButton>
           )}
         </Icons>
-      </StyledToolbar>
+      </CustomNavbar>
       <Menu
         id="demo-positioned-menu"
         aria-labelledby="demo-positioned-button"
@@ -133,6 +135,8 @@ const Navbar = () => {
                   onClick={() => {
                     if (route) {
                       handleMenuItemClick(route, false)
+                    } else if (name === 'Settings') {
+                      handleMenuItemClick(false, false, true)
                     } else {
                       handleClose()
                     }
@@ -151,6 +155,8 @@ const Navbar = () => {
                   onClick={() => {
                     if (route) {
                       handleMenuItemClick(route, name === 'Logout')
+                    } else if (name === 'Settings') {
+                      handleMenuItemClick(false, false, true)
                     } else {
                       handleClose()
                     }
@@ -161,7 +167,7 @@ const Navbar = () => {
                 </MenuItem>
               )
             })}
-        <MenuItem onClick={() => updateTheme()}>
+        <MenuItem onClick={() => updateMode()}>
           {isMode === 'dark' ? (
             <DarkModeIcon sx={{ ...menuIconStyles }} />
           ) : (

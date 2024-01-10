@@ -15,10 +15,12 @@ let systemTheme = isThemeDark ? 'dark' : 'light'
 const localState = JSON.parse(localStorage.getItem('state'))
 let initialState = {
   isMode: systemTheme,
+  isTheme: localState?.isTheme || 'redline',
   isSelectedUser: users[users.length - 1],
   isSelectedTab: 1,
   isLightboxOpen: false,
   isSearchModalOpen: false,
+  isSettingsModalOpen: false,
   isLightboxImage: null,
   isUserLoggedIn: localState?.isUserLoggedIn || false,
   products: null,
@@ -31,12 +33,22 @@ const ContextProvider = ({ children }) => {
   const min850 = useMediaQuery('(min-width: 850px)')
   const min900 = useMediaQuery('(min-width: 900px)')
 
-  const updateTheme = () => {
+  const updateMode = () => {
     const mode = state.isMode === 'light' ? 'dark' : 'light'
     try {
       dispatch({
-        type: 'UPDATE_THEME',
+        type: 'UPDATE_MODE',
         payload: mode,
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  const updateTheme = (theme) => {
+    try {
+      dispatch({
+        type: 'UPDATE_THEME',
+        payload: theme,
       })
     } catch (error) {
       console.log(error)
@@ -57,6 +69,11 @@ const ContextProvider = ({ children }) => {
   const toggleSearchModal = () => {
     dispatch({
       type: 'TOGGLE_SEARCH_MODAL',
+    })
+  }
+  const toggleSettingsModal = () => {
+    dispatch({
+      type: 'TOGGLE_SETTINGS_MODAL',
     })
   }
   const updateSelectedTab = (tab) => {
@@ -108,11 +125,13 @@ const ContextProvider = ({ children }) => {
     min600,
     min850,
     min900,
+    updateMode,
     updateTheme,
     selectUser,
     setLightBoxImage,
     toggleLightbox,
     toggleSearchModal,
+    toggleSettingsModal,
     updateSelectedTab,
     setIsUserLoggedIn,
     setProducts,
