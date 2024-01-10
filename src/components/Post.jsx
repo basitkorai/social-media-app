@@ -99,7 +99,7 @@ const Post = ({ post, autoMargin }) => {
               if (e.target.checked) likeSound.play()
               handleLikePost(post_id)
             }}
-            color="error"
+            color="secondary"
             icon={<FavoriteBorder />}
             checkedIcon={<FavoriteIcon />}
           />
