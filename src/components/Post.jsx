@@ -99,7 +99,7 @@ const Post = ({ post, autoMargin }) => {
               if (e.target.checked) likeSound.play()
               handleLikePost(post_id)
             }}
-            color="secondary"
+            color="primary"
             icon={<FavoriteBorder />}
             checkedIcon={<FavoriteIcon />}
           />
@@ -107,6 +107,7 @@ const Post = ({ post, autoMargin }) => {
 
         <IconButton disableRipple aria-label="share">
           <Checkbox
+            color="info"
             checked={is_saved}
             onChange={(e) => {
               handleSavePost(post_id)

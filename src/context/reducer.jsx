@@ -1,12 +1,25 @@
 const reducer = (state, action) => {
   const previousState = JSON.parse(localStorage.getItem('state'))
   switch (action.type) {
-    case 'UPDATE_THEME': {
+    case 'UPDATE_MODE': {
       const body = document.getElementById('body')
       body.style.background = action.payload === 'dark' ? '#121212' : '#fff'
       return {
         ...state,
         isMode: action.payload,
+      }
+    }
+    case 'UPDATE_THEME': {
+      localStorage.setItem(
+        'state',
+        JSON.stringify({
+          ...previousState,
+          isTheme: action.payload,
+        })
+      )
+      return {
+        ...state,
+        isTheme: action.payload,
       }
     }
     case 'SELECT_USER': {
@@ -31,6 +44,12 @@ const reducer = (state, action) => {
       return {
         ...state,
         isSearchModalOpen: !state.isSearchModalOpen,
+      }
+    }
+    case 'TOGGLE_SETTINGS_MODAL': {
+      return {
+        ...state,
+        isSettingsModalOpen: !state.isSettingsModalOpen,
       }
     }
     case 'UPDATE_TAB': {

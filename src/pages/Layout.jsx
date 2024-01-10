@@ -6,9 +6,11 @@ import Lightbox from '../components/Lightbox'
 import { useAppContext } from '../context/context'
 import { Outlet } from 'react-router-dom'
 import SearchDialog from '../components/SearchDialog'
+import SettingsDialog from '../components/SettingsDialog'
 
 const Layout = () => {
-  const { isLightboxOpen, isSearchModalOpen, min900 } = useAppContext()
+  const { isLightboxOpen, isSearchModalOpen, isSettingsModalOpen, min900 } =
+    useAppContext()
   return (
     <>
       <Box
@@ -26,6 +28,7 @@ const Layout = () => {
         </Stack>
         {isLightboxOpen && <Lightbox />}
         {isSearchModalOpen && <SearchDialog />}
+        {isSettingsModalOpen && <SettingsDialog />}
       </Box>
     </>
   )

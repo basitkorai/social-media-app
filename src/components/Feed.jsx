@@ -1,9 +1,10 @@
 import { Box, Typography } from '@mui/material'
 import Post from './Post'
 import { useAppContext } from '../context/context'
-
+import { useTheme } from '@emotion/react'
 const Feed = () => {
   const { posts } = useAppContext()
+  const { palette } = useTheme()
   return (
     <Box
       flex={4}
@@ -17,7 +18,7 @@ const Feed = () => {
         sx={{
           padding: '0 0rem 1rem 0.5rem',
           marginInline: 'auto',
-          background: '-webkit-linear-gradient(#ff416c, #ff4b2b)',
+          background: palette.textGradient,
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
           maxWidth: 490,

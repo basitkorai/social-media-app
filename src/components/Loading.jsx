@@ -3,7 +3,7 @@ import { useAppContext } from '../context/context'
 import { Box } from '@mui/material'
 
 const Loading = () => {
-  const { isMode } = useAppContext()
+  const { isMode, isTheme } = useAppContext()
   return (
     <Box
       sx={{
@@ -16,7 +16,9 @@ const Loading = () => {
         backgroundColor: isMode === 'dark' ? '#121212' : '#ffffff',
       }}
     >
-      <CircularProgress sx={{ color: '#34d399' }} />
+      <CircularProgress
+        sx={{ color: isTheme === 'redline' ? '#ff416c' : '#00CCFF' }}
+      />
     </Box>
   )
 }

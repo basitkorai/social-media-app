@@ -78,6 +78,7 @@ const mobileMenuItems = [
     route: 'login',
     icon: <Logout sx={menuIconStyles} />,
   },
+  { name: 'Settings', icon: <Settings sx={menuIconStyles} /> },
 ]
 
 export { desktopMenuItems, mobileMenuItems, menuIconStyles }

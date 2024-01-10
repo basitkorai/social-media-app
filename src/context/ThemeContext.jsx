@@ -5,18 +5,17 @@ import {
 } from '@mui/material'
 import { createContext, useContext } from 'react'
 import { useAppContext } from './context'
+import { chooseTheme } from '../data/themes'
 
 const ThemeContext = createContext()
 const ThemeContextProvider = ({ children }) => {
-  const { isMode } = useAppContext()
+  const { isMode, isTheme } = useAppContext()
+  const chosenTheme = chooseTheme(isTheme)
   const muiTheme = useTheme()
   const customTheme = createTheme({
     palette: {
       mode: isMode,
-      primary: {
-        main: '#34d399',
-        dark: '#F6AE2D',
-      },
+      ...chosenTheme,
     },
     typography: {
       fontFamily: ['Inter', 'sans-serif'].join(','),

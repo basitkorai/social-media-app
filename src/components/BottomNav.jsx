@@ -69,11 +69,11 @@ export default function BottomNavigation() {
           label="You"
           icon={
             <Avatar
-              onClick={() => setIsOpen(true)}
               sx={{
                 width: 25,
                 height: 25,
                 cursor: 'pointer',
+                marginBottom: '0.1rem',
                 outline: `${isSelectedTab === 2 ? '2px' : '0px'} solid ${
                   palette.primary.main
                 }`,
