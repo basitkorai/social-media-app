@@ -1,3 +1,8 @@
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useTheme } from '@emotion/react'
+import { useAppContext } from '../context/context'
+import searchUsersByName from '../utils/searchUsers'
 import {
   Avatar,
   Box,
@@ -6,12 +11,7 @@ import {
   TextField,
   Typography,
 } from '@mui/material'
-import { useAppContext } from '../context/context'
-import { useState } from 'react'
-import searchUsersByName from '../utils/searchUsers'
 import users from '../data/users'
-import { useNavigate } from 'react-router-dom'
-import { useTheme } from '@emotion/react'
 import Emoji from 'react-emojis'
 
 const SearchDialog = () => {

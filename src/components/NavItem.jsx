@@ -1,6 +1,6 @@
-import { ListItem, ListItemButton, ListItemIcon, useTheme } from '@mui/material'
-import { useAppContext } from '../context/context'
 import { NavLink, useLocation } from 'react-router-dom'
+import { useAppContext } from '../context/context'
+import { ListItem, ListItemButton, ListItemIcon, useTheme } from '@mui/material'
 
 const NavItem = ({ link, action }) => {
   const { isUserLoggedIn } = useAppContext()

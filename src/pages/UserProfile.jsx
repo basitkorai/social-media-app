@@ -1,7 +1,6 @@
-import React from 'react'
+import { Helmet } from 'react-helmet-async'
 import { AnimatePresence } from 'framer-motion'
 import MyProfile from '../components/UserProfile'
-import { Helmet } from 'react-helmet-async'
 import users from '../data/users'
 
 const UserProfile = () => {

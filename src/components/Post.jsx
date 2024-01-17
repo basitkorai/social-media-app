@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom'
+import { useAppContext } from '../context/context'
 import Card from '@mui/material/Card'
 import CardHeader from '@mui/material/CardHeader'
 import CardMedia from '@mui/material/CardMedia'
@@ -12,8 +14,6 @@ import MoreVertIcon from '@mui/icons-material/MoreVert'
 import { Bookmark, BookmarkBorder, FavoriteBorder } from '@mui/icons-material'
 import { CardActionArea, Checkbox } from '@mui/material'
 import sound from '../assets/sounds/like-sound.mp3'
-import { useAppContext } from '../context/context'
-import { useNavigate } from 'react-router-dom'
 
 const likeSound = new Audio(sound)
 const Post = ({ post, autoMargin }) => {

@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import styled from '@emotion/styled'
 import {
   Avatar,
   Box,
@@ -17,11 +19,8 @@ import {
   Image,
   PersonAdd,
   VideoCameraBack,
+  Cancel,
 } from '@mui/icons-material'
-import { useState } from 'react'
-import styled from '@emotion/styled'
-import CancelIcon from '@mui/icons-material/Cancel'
-
 const StyledModal = styled(Modal)({
   display: 'grid',
   justifyItems: 'center',
@@ -79,7 +78,7 @@ const Add = ({ biggerScreen }) => {
             aria-label="delete"
             size={biggerScreen ? 'large' : 'medium'}
           >
-            <CancelIcon color="error" fontSize="inherit" />
+            <Cancel color="error" fontSize="inherit" />
           </IconButton>
           <Typography
             id="modal-modal-title"

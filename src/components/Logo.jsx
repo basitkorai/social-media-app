@@ -1,6 +1,5 @@
-import React from 'react'
-import socialRocketLogo from '../assets/images/socialrocket.svg'
 import { Link } from 'react-router-dom'
+import socialRocketLogo from '../assets/images/socialrocket.svg'
 
 const Logo = ({ dimensions, disabled }) => {
   return (

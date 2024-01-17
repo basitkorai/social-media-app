@@ -1,3 +1,5 @@
+import { useAppContext } from '../context/context'
+import { useNavigate } from 'react-router-dom'
 import {
   AppBar,
   Avatar,
@@ -16,8 +18,6 @@ import DarkModeIcon from '@mui/icons-material/DarkMode'
 import { Settings } from '@mui/icons-material'
 import { useState } from 'react'
 import Logo from './Logo'
-import { useAppContext } from '../context/context'
-import { useNavigate } from 'react-router-dom'
 import {
   desktopMenuItems,
   mobileMenuItems,

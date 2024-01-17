@@ -1,8 +1,8 @@
-import { Avatar, Box, ButtonBase, Typography } from '@mui/material'
-import users from '../data/users'
-import { useAppContext } from '../context/context'
 import { useNavigate } from 'react-router-dom'
 import { useTheme } from '@emotion/react'
+import { useAppContext } from '../context/context'
+import { Avatar, Box, ButtonBase, Typography } from '@mui/material'
+import users from '../data/users'
 
 const FollowerProfiles = () => {
   const navigate = useNavigate()

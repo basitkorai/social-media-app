@@ -1,6 +1,6 @@
-import CircularProgress from '@mui/material/CircularProgress'
 import { useAppContext } from '../context/context'
 import { Box } from '@mui/material'
+import CircularProgress from '@mui/material/CircularProgress'
 
 const Loading = () => {
   const { isMode, isTheme } = useAppContext()

@@ -1,7 +1,7 @@
-import { Box, Typography } from '@mui/material'
-import pages from '../data/pages'
-import Page from '../components/Page'
 import { Helmet } from 'react-helmet-async'
+import { Box, Typography } from '@mui/material'
+import Page from '../components/Page'
+import pages from '../data/pages'
 
 const Pages = () => {
   return (

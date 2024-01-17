@@ -1,9 +1,9 @@
-import FollowerProfiles from './FollowerProfile'
+import { useNavigate } from 'react-router-dom'
+import { useAppContext } from '../context/context'
 import { motion } from 'framer-motion'
 import { Box, Button, ButtonBase, IconButton, Typography } from '@mui/material'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
-import { useNavigate } from 'react-router-dom'
-import { useAppContext } from '../context/context'
+import FollowerProfiles from './FollowerProfile'
 
 const UserProfile = ({ name, avatar, isFollowing, admin }) => {
   const { setLightBoxImage, toggleLightbox, min600, updateSelectedTab } =
