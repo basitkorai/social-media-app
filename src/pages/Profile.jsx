@@ -1,8 +1,7 @@
-import React from 'react'
+import { Helmet } from 'react-helmet-async'
 import { AnimatePresence } from 'framer-motion'
 import { useAppContext } from '../context/context'
 import UserProfile from '../components/UserProfile'
-import { Helmet } from 'react-helmet-async'
 
 const Profile = () => {
   const { isSelectedUser } = useAppContext()

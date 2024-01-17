@@ -1,10 +1,10 @@
+import { useAppContext } from '../context/context'
+import { useRef } from 'react'
 import LightboxComponent from 'yet-another-react-lightbox'
 import Download from 'yet-another-react-lightbox/plugins/download'
 import Share from 'yet-another-react-lightbox/plugins/share'
 import Zoom from 'yet-another-react-lightbox/plugins/zoom'
 import 'yet-another-react-lightbox/styles.css'
-import { useAppContext } from '../context/context'
-import { useRef } from 'react'
 
 const Lightbox = ({}) => {
   const { isLightboxImage, toggleLightbox } = useAppContext()

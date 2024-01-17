@@ -1,7 +1,7 @@
-import { Box, List } from '@mui/material'
-import navlinks from '../data/navlinks'
 import { useAppContext } from '../context/context'
+import { Box, List } from '@mui/material'
 import NavItem from './NavItem'
+import navlinks from '../data/navlinks'
 
 const SidebarList = () => {
   const { setIsUserLoggedIn } = useAppContext()

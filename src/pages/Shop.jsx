@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
-import { useAppContext } from '../context/context'
 import axios from 'axios'
-import Product from '../components/Product'
-import { Box, Typography } from '@mui/material'
 import { Helmet } from 'react-helmet-async'
+import { useAppContext } from '../context/context'
+import { Box, Typography } from '@mui/material'
+import Product from '../components/Product'
 import Loading from '../components/Loading'
 
 const Shop = () => {

@@ -1,7 +1,8 @@
-import { Box, Typography } from '@mui/material'
-import Post from './Post'
 import { useAppContext } from '../context/context'
 import { useTheme } from '@emotion/react'
+import { Box, Typography } from '@mui/material'
+import Post from './Post'
+
 const Feed = () => {
   const { posts } = useAppContext()
   const { palette } = useTheme()

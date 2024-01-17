@@ -1,27 +1,20 @@
+import { useAppContext } from '../context/context'
 import {
-  Avatar,
   Box,
-  ButtonBase,
   Checkbox,
   FormControl,
   FormControlLabel,
   FormGroup,
   FormLabel,
   Modal,
-  TextField,
   Typography,
 } from '@mui/material'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
-import { useAppContext } from '../context/context'
-import { useState } from 'react'
-import { useTheme } from '@emotion/react'
-import { CheckBox } from '@mui/icons-material'
 
 const SettingsDialog = () => {
   const { toggleSettingsModal, updateMode, updateTheme, isTheme, isMode } =
     useAppContext()
-  const { palette } = useTheme()
 
   const handleClose = () => {
     toggleSettingsModal()

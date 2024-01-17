@@ -1,3 +1,4 @@
+import { useAppContext } from '../context/context'
 import {
   Card,
   CardActionArea,
@@ -8,7 +9,6 @@ import {
   Typography,
 } from '@mui/material'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
-import { useAppContext } from '../context/context'
 import { Box } from '@mui/system'
 
 const Product = ({ image, title, description, id, price }) => {

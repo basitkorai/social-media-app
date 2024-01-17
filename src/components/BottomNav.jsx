@@ -1,11 +1,11 @@
 import { useEffect } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
+import { useAppContext } from '../context/context'
 import Box from '@mui/material/Box'
 import BottomNavigationWrapper from '@mui/material/BottomNavigation'
 import BottomNavigationAction from '@mui/material/BottomNavigationAction'
 import HomeIcon from '@mui/icons-material/Home'
 import StoreIcon from '@mui/icons-material/Store'
-import { useLocation, useNavigate } from 'react-router-dom'
-import { useAppContext } from '../context/context'
 import { Avatar, useTheme } from '@mui/material'
 
 export default function BottomNavigation() {

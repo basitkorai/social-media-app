@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async'
+import { useAppContext } from '../context/context'
 import { Box as SavedPostsBox, Typography } from '@mui/material'
 import Post from '../components/Post'
-import { useAppContext } from '../context/context'
 import NoMorePosts from '../components/NoMorePosts'
 
 const SavedPosts = () => {
