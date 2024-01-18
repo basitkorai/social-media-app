@@ -107,7 +107,7 @@ const Add = ({ biggerScreen }) => {
             label="What's on your mind?"
             multiline
             rows={4}
-            color="info"
+            color="primary"
           />
           <Stack direction="row" gap={1} mt={2} mb={2}>
             <EmojiEmotions color="primary" />
